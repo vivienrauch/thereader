@@ -12,11 +12,11 @@ const NavBar = () => {
             <img src={logo} alt="logo" height="250"></img>
           </Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#signin">Sign in</Nav.Link>
-            <Nav.Link href="#signup">Sign up</Nav.Link>
-            <Nav.Link href="#events">Book Club Events</Nav.Link>
-            <Nav.Link href="#botm">Book of the Month</Nav.Link>
+            <Nav.Link>Home</Nav.Link>
+            <Nav.Link>Sign in</Nav.Link>
+            <Nav.Link>Sign up</Nav.Link>
+            <Nav.Link>Book Club Events</Nav.Link>
+            <Nav.Link>Book of the Month</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
