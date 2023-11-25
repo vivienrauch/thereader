@@ -9,25 +9,28 @@
 }
 
 .Content {
-    background-color: #8d2b00;
-    color: #fafafa;
-    padding: 10px;
-    border-radius: 20px;
-    border: none;
+    background-color: #fafafa;
+    color: #3a3a3a;
     font-family: 'Cinzel', serif;
-    font-size: 60%;
+    font-size: 69%;
 }
 
 .Content a {
     text-decoration: none;
+    color: #3a3a3a;
+    font-size: 130%;
+    background-color:#8d2b00;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
     color: #fafafa;
-    font-size: 120%;
 }
 
 .FillerImage {
     object-fit: cover;
-    height: 100%;
-    width: 100%
+    height: 105%;
+    width: 100%;
 }
 
 .Image {

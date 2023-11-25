@@ -1,3 +1,60 @@
 .Link span{
-   text-decoration: underline;
+   letter-spacing: 0.1em;
+   font-weight: bold;
+   text-transform: uppercase;
+}
+
+.Link {
+   text-decoration: none;
+   text-align: center;
+   display: block;
+}
+
+.Row {
+   height: 200px;
+   display: flex;
+}
+
+.Input {
+   background: #fafafa;
+   border: 1px solid #8d2b00;
+   box-sizing: border-box;
+   border-radius: 12px;
+   text-align: center;
+   padding: 15px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   font-family: 'Goudy Bookletter 1911', serif;
+}
+
+.Input:focus {
+   border-color: #8d2b00;
+}
+
+.Header {
+   font-style: normal;
+   font-weight: bold;
+   font-size: 18px;
+   line-height: 19px;
+   text-align: center;
+   letter-spacing: 0.1em;
+   text-transform: uppercase;
+   color: #fafafa;
+   margin-bottom: 20px;
+   background-color: #8d2b00;
+   padding-top: 12px;
+   padding-bottom: 12px;
+   border-radius: 20px;
+}
+
+.Container {
+   padding: 30px 10px;
+}
+
+.SignIncol {
+   height: 320px;
+}
+
+.SignUpCol {
+   height: 375px;
 }
