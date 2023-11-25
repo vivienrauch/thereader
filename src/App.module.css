@@ -1,0 +1,40 @@
+.App {
+    font-family: 'Goudy Bookletter 1911', serif;
+    background-color: #fafafa;
+    min-height: 100vh;
+}
+
+.Main {
+    padding-top: 200px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: #3a3a3a;
+    transition: color ease-in-out 0.3s;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:hover i {
+    color: #8d2b00;
+    transition: color ease-in-out 0.3s;
+}
+
+i {
+    color: #3a3a3a;
+    font-size: 1.6rem;
+    padding: 7px;
+    vertical-align: middle;
+}
+
+i:hover {
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
+    color: #8d2b00;
+}

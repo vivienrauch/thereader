@@ -1,0 +1,35 @@
+.NavBar {
+    background-color: #fafafa;
+    border: none;
+}
+
+.Navlink {
+    font-family: 'Cinzel', 'serif';
+    font-size: 90%;
+    padding: 8px;
+    text-decoration: none;
+}
+
+.Navlink:hover {
+    color:#fafafa;
+    background-color: #8d2b00;
+}
+
+.Active {
+    background-color:#8d2b00;
+    color:#fafafa;
+}
+
+.NavBarTogglerIcon {
+    border-style: none;
+}
+
+.NavBarTogglerIcon:hover {
+    border-style: none;
+    color:#8d2b00;
+}
+
+.NavBarTogglerIcon:focus {
+    border-style: none;
+    box-shadow: none;
+}
