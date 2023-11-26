@@ -20,6 +20,10 @@
     color:#fafafa;
 }
 
+.Active i {
+    color: #fafafa;
+}
+
 .NavBarTogglerIcon {
     border-style: none;
 }

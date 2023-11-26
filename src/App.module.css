@@ -53,13 +53,13 @@ a:hover {
 }
 
 a:hover i {
-    color: #8d2b00;
+    color: #fafafa;
     transition: color ease-in-out 0.3s;
 }
 
 i {
-    color: #3a3a3a;
-    font-size: 1.6rem;
+    color: rgb(142, 138, 138);
+    font-size: 17px;
     padding: 7px;
     vertical-align: middle;
 }
@@ -67,7 +67,7 @@ i {
 i:hover {
     cursor: pointer;
     transition: color ease-in-out 0.3s;
-    color: #8d2b00;
+    color: #fafafa;
 }
 
 /* scrollbar */
@@ -81,5 +81,5 @@ i:hover {
     background: #3a3a3a;
   }
   *::-webkit-scrollbar-thumb:hover {
-    background: #8d2b00;
+    background: #fafafa;
   }
