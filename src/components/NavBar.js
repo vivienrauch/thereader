@@ -1,12 +1,33 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../assets/thereaderlogo.png';
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
+import { CurrentUserContext } from '../App';
 
 const NavBar = () => {
+  const currentUser = useContext(CurrentUserContext)
+  const loggedInIcons = <>{currentUser?.username}</>;
+  const loggedOutIcons = (
+    <>
+      <NavLink to="/signin"
+        className={styles.Navlink}
+        activeClassName={styles.Active}>Sign in</NavLink>
+      <NavLink to="/signup"
+        className={styles.Navlink}
+        activeClassName={styles.Active}>Sign up</NavLink>
+      <NavLink
+        to="/bookclubevents"
+        className={styles.Navlink}
+        activeClassName={styles.Active}>Book Club Events</NavLink>
+      <NavLink to="/bookofthemonth"
+        className={styles.Navlink}
+        activeClassName={styles.Active}>Book of the Month</NavLink>
+    </>
+  )
+
   return (
     <Navbar className={styles.NavBar} expand="md" fixed="top">
         <Container>
@@ -21,19 +42,8 @@ const NavBar = () => {
               <NavLink exact to="/"
                 className={styles.Navlink}
                 activeClassName={styles.Active}>Home</NavLink>
-              <NavLink to="/signin"
-                className={styles.Navlink}
-                activeClassName={styles.Active}>Sign in</NavLink>
-              <NavLink to="/signup"
-                className={styles.Navlink}
-                activeClassName={styles.Active}>Sign up</NavLink>
-              <NavLink
-                to="/bookclubevents"
-                className={styles.Navlink}
-                activeClassName={styles.Active}>Book Club Events</NavLink>
-              <NavLink to="/bookofthemonth"
-                className={styles.Navlink}
-                activeClassName={styles.Active}>Book of the Month</NavLink>
+              
+              {currentUser ? loggedInIcons : loggedOutIcons}
             </Nav>
           </Navbar.Collapse>
         </Container>
