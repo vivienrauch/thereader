@@ -37,3 +37,42 @@ Button:active {
     padding: 10px 50px;
     width: 100%;
 }
+
+.PostButtons {
+    font-size: 100%;
+    align-self: center;
+    border-radius: 100px;
+    border-color: #8d2b00;
+    padding: 10px 12px;
+    min-width: 80px;
+    background-color: #fafafa;
+    color: #3a3a3a;
+    margin-top: 15px;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+    margin-left: 10px;
+    font-family: 'Goudy Bookletter 1911', serif;
+}
+
+.PostButtons:hover {
+    background-color: #8d2b00;
+    color: #fafafa;
+    border-color: #8d2b00;
+}
+
+.PostButtons:hover:active {
+    background-color: #8d2b00 !important;
+    border-color: #8d2b00;
+}
+
+.PostButtons:active {
+    background-color: #8d2b00 !important;
+    border-style: none;
+    border-color: #8d2b00;
+}
+
+.PostButtons:focus {
+    background-color: #8d2b00;
+    border-style: none;
+    border-color: #8d2b00;
+}

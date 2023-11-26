@@ -1,0 +1,12 @@
+.PostContainer {
+    min-height: 300px;
+    width: 300px;
+    border-color: #3a3a3a;
+  }
+
+.PostContent {
+    background-color: #fafafa;
+    color: #3a3a3a;
+    font-family: 'Cinzel', serif;
+    font-size: 69%;
+}
