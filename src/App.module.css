@@ -70,6 +70,15 @@ i:hover {
     color: #fafafa;
 }
 
+figure {
+    text-align: center;
+    display: inline-block;
+  }
+
+input[type="file"] {
+    display: none;
+}
+
 /* scrollbar */
 *::-webkit-scrollbar {
     width: 5px;

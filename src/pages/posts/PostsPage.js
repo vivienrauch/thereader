@@ -48,7 +48,7 @@ function PostsPage({ message, filter = "" }) {
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Popular profiles mobile</p>
         <i className={`fa-solid fa-magnifying-glass ${styles.SearchIcon}`}></i>
-        <Form className={styles.Search}
+        <Form className={styles.SearchBar}
         onSubmit={(event) => event.preventDefault()}
         >
           <Form.Control

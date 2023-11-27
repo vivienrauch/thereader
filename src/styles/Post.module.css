@@ -1,7 +1,7 @@
 .Post {
     background-color: #fffbf8;
     border: 1px solid #dadadf;
-    border-radius: 2px;
+    border-radius: 12px;
     margin-bottom: 16px;
     text-align: center;
   }
@@ -21,4 +21,10 @@
   
   .HeartOutline:hover {
     color: #8d2b00;
+  }
+
+  .Card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
   }
