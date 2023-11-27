@@ -38,40 +38,40 @@ Button:active {
     width: 100%;
 }
 
-.PostButtons {
-    font-size: 100%;
+.PostButton {
+    font-size: 135%;
+    text-transform: uppercase;
     align-self: center;
     border-radius: 100px;
-    border-color: #8d2b00;
-    padding: 10px 12px;
+    border-color: transparent;
+    padding: 8px 12px;
     min-width: 80px;
-    background-color: #fafafa;
-    color: #3a3a3a;
+    background-color: #8d2b00;
+    color: #fafafa;
     margin-top: 15px;
+    margin-right: 5px;
     letter-spacing: 0.1em;
     font-weight: bold;
-    margin-left: 10px;
-    font-family: 'Goudy Bookletter 1911', serif;
 }
 
-.PostButtons:hover {
+.PostButton:hover {
     background-color: #8d2b00;
     color: #fafafa;
     border-color: #8d2b00;
 }
 
-.PostButtons:hover:active {
+.PostButton:hover:active {
     background-color: #8d2b00 !important;
     border-color: #8d2b00;
 }
 
-.PostButtons:active {
+.PostButton:active {
     background-color: #8d2b00 !important;
     border-style: none;
     border-color: #8d2b00;
 }
 
-.PostButtons:focus {
+.PostButton:focus {
     background-color: #8d2b00;
     border-style: none;
     border-color: #8d2b00;
