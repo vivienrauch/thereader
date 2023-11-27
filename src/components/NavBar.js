@@ -15,7 +15,7 @@ const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
-  const {expanded, setExpanded, ref} = useClickOutsideToggle();
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
   const handleSignOut = async () => {
     try {
@@ -31,7 +31,7 @@ const NavBar = () => {
       to="/posts/create"
       className={styles.Navlink}
       activeClassName={styles.Active}>
-        <i class="fa-solid fa-pen-nib"></i>Add post
+        <i className="fa-solid fa-pen-nib"></i>Add post
     </NavLink>
   )
 
@@ -72,7 +72,8 @@ const NavBar = () => {
       >
         <Avatar src={currentUser?.profile_image} text="Profile" height={33} />
       </NavLink>
-    </>);
+    </>
+  );
   const loggedOutIcons = (
     <>
       <NavLink to="/signin"
@@ -105,10 +106,12 @@ const NavBar = () => {
           />
           <Navbar.Collapse id="basic-navbar-nav" className={styles.NavBarTogglerIcon}>
             <Nav className="mr-auto text-right">
-              <NavLink exact to="/"
+              <NavLink
+                exact to="/"
                 className={styles.Navlink}
-                activeClassName={styles.Active}>
-                  <i className="fa-solid fa-couch"></i>Home
+                activeClassName={styles.Active}
+              >
+                <i className="fa-solid fa-couch"></i>Home
               </NavLink>
               
               {currentUser ? loggedInIcons : loggedOutIcons}

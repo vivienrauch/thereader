@@ -9,9 +9,9 @@ export const SetCurrentUserContext = createContext();
 export const useCurrentUser = () => useContext(CurrentUserContext)
 export const useSetCurrentUser = () => useContext(SetCurrentUserContext)
 
-export const CurrentUserProvider = ({children}) => {
+export const CurrentUserProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null)
-    const history = useHistory()
+    const history = useHistory();
 
     const handleMount = async () => {
         try {
@@ -23,14 +23,14 @@ export const CurrentUserProvider = ({children}) => {
     };
 
     useEffect(() => {
-        handleMount()
+        handleMount();
     }, []);
 
     useMemo(() => {
         axiosReq.interceptors.request.use(
             async (config) => {
                 try {
-                    await axios.post('/dj-rest-auth/token/refresh');
+                    await axios.post('/dj-rest-auth/token/refresh/');
                 } catch (err) {
                     setCurrentUser((prevCurrentUser) =>{
                         if (prevCurrentUser) {
@@ -50,11 +50,11 @@ export const CurrentUserProvider = ({children}) => {
         axiosRes.interceptors.response.use(
             (response) => response,
             async (err) => {
-                if (err.response?.status === 401){
-                    try{
+                if (err.response?.status === 401) {
+                    try {
                         await axios.post('/dj-rest-auth/token/refresh/')
-                    } catch(err){
-                        setCurrentUser(prevCurrentUser => {
+                    } catch (err) {
+                        setCurrentUser((prevCurrentUser) => {
                             if (prevCurrentUser){
                                 history.push('/signin');
                             }
