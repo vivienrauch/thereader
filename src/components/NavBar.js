@@ -41,30 +41,30 @@ const NavBar = () => {
         to="/feed"
         className={styles.Navlink}
         activeClassName={styles.Active}>
-        <i class="fa-solid fa-glasses"></i>Feed
+        <i className="fa-solid fa-glasses"></i>Feed
       </NavLink>
       <NavLink
         to="/liked"
         className={styles.Navlink}
         activeClassName={styles.Active}>
-        <i class="fa-regular fa-heart"></i>Liked
+        <i className="fa-regular fa-heart"></i>Liked
       </NavLink>
       <NavLink to="/bookofthemonth"
         className={styles.Navlink}
         activeClassName={styles.Active}>
-        <i class="fa-solid fa-star"></i>Book of the Month
+        <i className="fa-solid fa-star"></i>Book of the Month
       </NavLink>
       <NavLink
         to="/bookclubevents"
         className={styles.Navlink}
         activeClassName={styles.Active}>
-        <i class="fa-solid fa-calendar-days"></i>Book Club
+        <i className="fa-solid fa-calendar-days"></i>Book Club
       </NavLink>
       <NavLink
         to="/"
         onClick={handleSignOut}
         className={styles.Navlink}>
-        <i class="fa-solid fa-door-open"></i>Sign Out
+        <i className="fa-solid fa-door-open"></i>Sign Out
       </NavLink>
       <NavLink
         to={`/profiles/${currentUser?.profile_id}`}
@@ -78,12 +78,12 @@ const NavBar = () => {
       <NavLink to="/signin"
         className={styles.Navlink}
         activeClassName={styles.Active}>
-        <i class="fa-solid fa-person-walking-arrow-right"></i>Sign in
+        <i className="fa-solid fa-person-walking-arrow-right"></i>Sign in
       </NavLink>
       <NavLink to="/signup"
         className={styles.Navlink}
         activeClassName={styles.Active}>
-        <i class="fa-solid fa-user-plus"></i>Sign up
+        <i className="fa-solid fa-user-plus"></i>Sign up
       </NavLink>
     </>
   )
@@ -108,7 +108,7 @@ const NavBar = () => {
               <NavLink exact to="/"
                 className={styles.Navlink}
                 activeClassName={styles.Active}>
-                  <i class="fa-solid fa-couch"></i>Home
+                  <i className="fa-solid fa-couch"></i>Home
               </NavLink>
               
               {currentUser ? loggedInIcons : loggedOutIcons}
