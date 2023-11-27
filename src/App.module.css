@@ -1,6 +1,6 @@
 .App {
     font-family: 'Goudy Bookletter 1911', serif;
-    background-color: #fafafa;
+    background-color: #fffbf8;
     min-height: 100vh;
 }
 
@@ -9,7 +9,7 @@
 }
 
 .Content {
-    background-color: #fafafa;
+    background-color: #fffbf8;
     color: #3a3a3a;
     font-family: 'Cinzel', serif;
     font-size: 69%;
