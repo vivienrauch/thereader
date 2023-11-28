@@ -5,35 +5,45 @@ import axios from "axios";
 
 
 const BookOfTheMonth = (props) => {
-    const { match } = props;
-    const [book, setBooks] = useState(null);
+    const {
+        id,
+        title,
+        content,
+        image,
+        created_at,
+        website,
+    } = props;
 
-    useEffect(() => {
-        const displayBooks = async () => {
-            try {
-                const response = await axios.get(`/bookofthemonth/${match.params.id}`);
-                setBooks(response.data);
-            } catch (err) {
-                console.log(err);
-            }
-        };
+    const [book, setBook] = useState(null);
 
-        displayBooks();
-    }, [match.params.id]);
+  useEffect(() => {
+    const fetchBook = async () => {
+      try {
+        const response = await axios.get("/bookofthemonth/1/");
+        setBook(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
 
-    if (!book) {
-        return <div>Loading Book of the Month...</div>
+    if (!title) {
+      fetchBook();
     }
+  }, [id, title]);
 
-    return (
-        <div>
-            <h2>{book.title}</h2>
-            <p>{book.content}</p>
-            <img src={book.image} alt="Book cover" />
-            <p>Read more and buy: {book.website}</p>
-            <p>{book.created_at}</p>
-        </div>
-    );
+  if (!title || !book) {
+    return <div>Loading Book of the Month...</div>;
+  }
+
+  return (
+    <div>
+      <h2>{book.title}</h2>
+      <p>{book.content}</p>
+      <img src={book.image} alt="Book cover" />
+      <p>Read more and buy: {book.website}</p>
+      <p>{book.created_at}</p>
+    </div>
+  );
 };
 
 export default BookOfTheMonth;

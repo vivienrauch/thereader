@@ -57,7 +57,10 @@ function App() {
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/bookclubevents" render={() => <h1>Book Club Events</h1>} />
-          <Route exact path="/bookofthemonth/:id" render={() => <BookOfTheMonth />} />
+          <Route
+            exact
+            path="/bookofthemonth/1/"
+            render={() => <BookOfTheMonth />} />
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />

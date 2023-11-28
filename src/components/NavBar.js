@@ -53,7 +53,7 @@ const NavBar = () => {
         activeClassName={styles.Active}>
         <i className="fa-regular fa-heart"></i>Liked
       </NavLink>
-      <NavLink to={`/bookofthemonth/${match.params.id}`}
+      <NavLink to="/bookofthemonth"
         className={styles.Navlink}
         activeClassName={styles.Active}>
         <i className="fa-solid fa-star"></i>Book of the Month
