@@ -8,6 +8,7 @@ import SignInForm from "./pages/auth/SignInForm";
 import PostCreateForm from "./pages/posts/PostCreateForm";
 import PostPage from "./pages/posts/PostPage";
 import PostsPage from "./pages/posts/PostsPage";
+import PostEditForm from "./pages/posts/PostEditForm";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 
 
@@ -54,6 +55,7 @@ function App() {
           <Route exact path="/bookofthemonth" render={() => <h1>Book Of The Month</h1>} />
           <Route exact path="/posts/create" render={() => <PostCreateForm /> } />
           <Route exact path="/posts/:id" render={() => <PostPage />} />
+          <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
           <Route render={() => <p>Page Not Found</p>} />
         </Switch>
       </Container>
