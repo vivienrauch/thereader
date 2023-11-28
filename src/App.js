@@ -13,6 +13,7 @@ import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
+import BookOfTheMonth from "./bookofthemonth/BookOfTheMonth";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 
 
@@ -56,7 +57,7 @@ function App() {
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/bookclubevents" render={() => <h1>Book Club Events</h1>} />
-          <Route exact path="/bookofthemonth" render={() => <h1>Book Of The Month</h1>} />
+          <Route exact path="/bookofthemonth/:id" render={() => <BookOfTheMonth />} />
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />

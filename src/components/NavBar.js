@@ -19,10 +19,14 @@ const NavBar = () => {
 
   const handleSignOut = async () => {
     try {
+      console.log("Logging out...");
       await axios.post("dj-rest-auth/logout/");
+      console.log("Logout successful.");
+  
       setCurrentUser(null);
+      localStorage.removeItem('authToken');
     } catch (err) {
-      console.log(err);
+      console.error("Logout failed:", err);
     }
   };
 
@@ -49,7 +53,7 @@ const NavBar = () => {
         activeClassName={styles.Active}>
         <i className="fa-regular fa-heart"></i>Liked
       </NavLink>
-      <NavLink to="/bookofthemonth"
+      <NavLink to={`/bookofthemonth/${match.params.id}`}
         className={styles.Navlink}
         activeClassName={styles.Active}>
         <i className="fa-solid fa-star"></i>Book of the Month
