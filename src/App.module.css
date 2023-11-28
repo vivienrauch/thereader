@@ -23,7 +23,6 @@
     padding-top: 10px;
     padding-bottom: 10px;
     border: none;
-    color: #fafafa;
 }
 
 .FillerImage {
@@ -76,6 +75,11 @@ figure {
 
 input[type="file"] {
     display: none;
+}
+
+.ChangeProfPic {
+    width: 70%;
+    height: 70%;
 }
 
 /* scrollbar */

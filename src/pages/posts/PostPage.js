@@ -12,31 +12,32 @@ import Comment from "../comments/Comment";
 
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 
-
 function PostPage() {
   const { id } = useParams();
   const [post, setPost] = useState({ results: [] });
+
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
-        try {
-          const [{ data: post }, { data: comments }] = await Promise.all([
-            axiosReq.get(`/posts/${id}`),
-            axiosReq.get(`/comments/?post=${id}`),
-          ]);
-          setPost({results: [post]});
-          setComments(comments);
-        } catch(err){
-          console.log(err)  
-        }
-    }
+      try {
+        const [{ data: post }, { data: comments }] = await Promise.all([
+          axiosReq.get(`/posts/${id}`),
+          axiosReq.get(`/comments/?post=${id}`),
+        ]);
+        setPost({ results: [post] });
+        setComments(comments);
+      } catch (err) {
+        console.log(err);
+      }
+    };
 
     handleMount();
   }, [id]);
@@ -74,7 +75,7 @@ function PostPage() {
               next={() => fetchMoreData(comments, setComments)}
             />
           ) : currentUser ? (
-            <span>Be the first to comment!</span>
+            <span>No comments yet, be the first to comment!</span>
           ) : (
             <span>No comments... yet</span>
           )}
