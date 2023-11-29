@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "../styles/BookClubEvent.module.css";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import { Card,
          Row,
@@ -52,7 +51,7 @@ const handleDelete = async () => {
       await axiosRes.delete(`/events/${id}`);
       history.goBack();
     } catch (err) {
-        console.log(err);
+        // console.log(err);
     }
 }
 
@@ -67,12 +66,12 @@ const handleResponse = async () => {
                     ...bookclubevent,
                     response_count: bookclubevent.response_count + 1,
                     response_id: data.id,
-                }
+                  }
                 : bookclubevent;
             }),
         }));
     } catch (err) {
-        console.log(err);
+        // console.log(err);
     }
 };
 
@@ -87,17 +86,17 @@ const handleRemoveResponse = async () => {
                     ...bookclubevent,
                     response_count: bookclubevent.response_count - 1,
                     response_id: null,
-                }
+                  }
                 : bookclubevent;
             }),
         }));
     } catch (err) {
-        console.log(err);
+        // console.log(err);
     }
 };
 
     return (
-        <Card className={styles.BookClubEvent}>
+        <Card>
             <Card.Body>
                 <Media>
                     <div>

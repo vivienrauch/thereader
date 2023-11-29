@@ -81,7 +81,7 @@ function BookClubEventEditForm() {
             })
             : history.push("/");
         } catch (err) {
-            console.log(err);
+            // console.log(err);
         }
     };
 
@@ -128,7 +128,7 @@ function BookClubEventEditForm() {
       await axiosReq.put(`/bookclubevents/${id}/`, formData);
       history.push(`/bookclubevents/${id}`);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

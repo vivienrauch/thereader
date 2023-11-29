@@ -20,7 +20,7 @@ const BookOfTheMonth = (props) => {
         const response = await axiosReq.get("/bookofthemonth");
         setBook(response.data);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 

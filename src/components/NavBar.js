@@ -9,6 +9,7 @@ import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContex
 import Avatar from "./Avatar";
 import axios from 'axios';
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
+import { removeTokenTimestamp } from "../utils/utils";
 
 
 const NavBar = () => {
@@ -19,14 +20,14 @@ const NavBar = () => {
 
   const handleSignOut = async () => {
     try {
-      console.log("Logging out...");
+      // console.log("Logging out...");
       await axios.post("dj-rest-auth/logout/");
-      console.log("Logout successful.");
+      // console.log("Logout successful.");
   
       setCurrentUser(null);
-      localStorage.removeItem('authToken');
+      removeTokenTimestamp();
     } catch (err) {
-      console.error("Logout failed:", err);
+      // console.error("Logout failed:", err);
     }
   };
 

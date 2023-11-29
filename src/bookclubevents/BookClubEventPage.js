@@ -20,7 +20,7 @@ function BookClubEventPage() {
         ]);
         setBookClubEvent({ results: [bookclubevent] });
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 

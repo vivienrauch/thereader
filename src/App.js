@@ -19,6 +19,7 @@ import BookClubEventCreateForm from "./bookclubevents/BookClubEventCreateForm";
 import BookClubEventEditForm from "./bookclubevents/BookClubEventEditForm";
 import BookClubEventPage from "./bookclubevents/BookClubEventPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
+import NotFound from "./components/NotFound";
 
 
 function App() {
@@ -102,7 +103,7 @@ function App() {
             path="/profiles/:id/edit"
             render={() => <ProfileEditForm />}
           />
-          <Route render={() => <p>Page Not Found</p>} />
+          <Route render={() => <NotFound />} />
         </Switch>
       </Container>
     </div>
