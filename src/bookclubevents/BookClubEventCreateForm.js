@@ -237,7 +237,7 @@ function BookClubEventCreateForm() {
       >
         cancel
       </Button>
-      <Button className={`${btnStyles.Button}`} type="submit">
+      <Button className={`${btnStyles.PostButton}`} type="submit">
         create
       </Button>
     </div>

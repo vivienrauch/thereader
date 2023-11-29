@@ -1,102 +1,197 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Welcome to The Reader!
 
-Welcome,
+### **Backend**
 
-This is the Code Institute student template for React apps on the Codeanywhere IDE. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.  
-DO NOT use this template if you are using the Gitpod IDE. Use the following command instead:  
-`npx create-react-app . --template git+https://github.com/Code-Institute-Org/cra-template-moments.git --use-npm`
+Live site: https://the-reader-2a70cde2ef2e.herokuapp.com
+Repo: https://github.com/vivienrauch/thereader-api
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **31st August, 2023**
+### **Frontend**
+Live site: https://the-reader-react-1715725e4d83.herokuapp.com/ (as of now, the live site experiences issues of rendering)
+Repo: https://github.com/vivienrauch/thereader
 
-## Codeanywhere Reminders
+## **Table of Contents**
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+# **Objective**
 
-To log into the Heroku toolbelt CLI:
+My objective with this community app was to bring those who have reading as a hobby closer together;
+as well as having a functional app that can authenticate, make it possible for users to follow each other,
+make up their own profile, be able to modify it, have some custom features like the book of the month or the book club
+events.
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## **User Stories**
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+- [Kanban board] (https://github.com/users/vivienrauch/projects/8/views/1)
+- [User stories] (https://github.com/vivienrauch/thereader-api/issues)
 
----
+## **Features**
 
-Happy coding!
+- Entity Relationship Diagram
+    - The following custom models were used in this project - the User model is the in-built Django User model.
 
-# Getting Started with Create React App
++-----------------+       +-----------------+       +-------------------+
+|    Response     |       |   BookClubEvent |       |   BookOfTheMonth  |
++-----------------+       +-----------------+       +-------------------+
+| - id            |       | - id            |       | - id              |
+| - owner         |<----->| - owner         |       | - title           |
+| - bookclubevent |       | - event_name    |       | - content         |
+| - created_at    |       | - event_descr.. |       | - image           |
++-----------------+       | - date          |       | - website         |
+                          | - event_organ.. |       | - created_at      |
+                          | - event_locati..|       | - updated_at      |
+                          | - event_start   |       +-------------------+
+                          | - event_end     |
+                          | - contact       |
+                          | - website       |
+                          | - event_cover   |
+                          +-----------------+
+                                |
++---------------+               |
+|     Like      |               |
++---------------+               |
+| - id          |               |
+| - owner       |<--------------+
+| - post        |
+| - created_at  |
++---------------+
+       |
++-------------------+
+|      Profile      |
++-------------------+
+| - id              |
+| - owner           |
+| - created_at      |
+| - updated_at      |
+| - name            |
+| - content         |
+| - fav_book        |
+| - image           |
++-------------------+
+        |
++-------------------+
+|      Comment      |
++-------------------+
+| - id              |
+| - owner           |
+| - post            |
+| - created_at      |
+| - updated_at      |
+| - content         |
++-------------------+
+         |
++-------------------+
+|     Follower      |
++-------------------+
+| - id              |
+| - owner           |
+| - followed        |
+| - created_at      |
++-------------------+
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### **Existing Features**
 
-In the project directory, you can run:
+- Sign in and up
 
-### `npm install`
 
-Installs the required npm packages.
+- Home page
 
-### `npm start`
+![home](src/assets/home.png)
 
-Runs the app in the development mode.\
-Open port 3000 to view it in the browser.
+![navbrar](src/assets/nav.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Profile, edit
 
-### `npm test`
+![profile](src/assets/profile.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![editprofile](src/assets/editprofile.png)
 
-### `npm run build`
+![editprofiledetail](src/assets/editprofiledet.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Following and Popular profiles
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![followingpopular](src/assets/popularprofilesplusfollow.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Book of the month
 
-### `npm run eject`
+![botm](src/assets/bookofthemonth.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Book Club Event, create (edit, delete - future feature)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![bce](src/assets/bookclubeventspage.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![bcecr](src/assets/createbookclubevent.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![bcepage](src/assets/bookclubeventspage.png)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Commenting - create, edit, delete
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![comments](src/assets/commentempty.png)
 
-### Code Splitting
+![commented](src/assets/commented.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![editcom](src/assets/editcomment.png)
 
-### Analyzing the Bundle Size
+- Liking-unliking
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![like](src/assets/likescomments.png)
 
-### Making a Progressive Web App
+- Feed
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![feed](src/assets/feed.png)
 
-### Advanced Configuration
+- Post - create, edit, delete
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![post](src/assets/addpost.png)
 
-### Deployment
+![post](src/assets/editdeletepost.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+### **Future Features**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- There were multiple features that unfortunately I couldn't get to render in the frontend app, mostly due to lack of time and last-minute errors, so those are marked as In Progress in the Kanban board
+    - To be able to RSVP an event
+    - To remove that response from an event
+    - To have the event render without having to refresh the page and with the full details
+
+# **Testing**
+
+Testing details can be found separately in the [TESTING.md](TESTING.md) file.
+
+# **Deployment**
+
+- Open your Heroku dashboard.
+- Click on "New" and choose "Create new app."
+- Provide a meaningful name for your app and select the appropriate region.
+- Go to the "Settings" tab.
+- Click "Reveal Config Vars" to input key-value pairs from your .env file (excluding DEBUG and DEVELOPMENT).
+- Add a buildpack by clicking "Add buildpack" and select "python" from the list. Save your changes.
+- Navigate to the "Deploy" tab.
+- Choose "GitHub - Connect to GitHub" as the deployment method.
+- Click "Connect to GitHub" and search for your repository by name.
+- Connect to the relevant repository and either enable automatic deploys or manually deploy by clicking "Deploy Branch."
+- Access the deployed site by clicking "View."
+- You can also find the live site in the environments section of your GitHub repository.
+
+# **Technologies Used**
+
+- Programming Languages:
+
+    - Python
+
+- Frameworks, Libraries, and Tools Used:
+
+    - Django: Utilized for the development of the web application.
+    - Django Rest Framework: Employed to streamline communication between the backend and frontend components.
+    - PostgreSQL: Chosen as the object-relational database system.
+    - ElephantSQL: Used as the hosting service for the database.
+    - Git: Implemented for version control, with Gitpod terminal facilitating commits to Git and pushes to GitHub.
+    - GitHub: Serves as the repository for storing the project's code after it's pushed from Git.
+    - Heroku: Selected for deploying the application.
+
+# **Credits**
+
+- Moments walkthrough
+- forums like stackOverflow and Youtube
+- slack
+- inspirations
