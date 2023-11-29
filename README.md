@@ -28,6 +28,7 @@ events.
 - Entity Relationship Diagram
     - The following custom models were used in this project - the User model is the in-built Django User model.
 
+```
 +-----------------+       +-----------------+       +-------------------+
 |    Response     |       |   BookClubEvent |       |   BookOfTheMonth  |
 +-----------------+       +-----------------+       +-------------------+
@@ -86,6 +87,7 @@ events.
 | - followed        |
 | - created_at      |
 +-------------------+
+```
 
 ### **Design**
 
@@ -97,6 +99,7 @@ It still needs some improvement, but the main idea is visible on the current fea
 
 - Sign in and up
 
+![signinup](src/assets/signinsignup.png)
 
 - Home page
 
