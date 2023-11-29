@@ -76,7 +76,6 @@ function App() {
               <BookClubEventsPage message="Sorry, no results found. Adjust the search keyword." />
             )}
           />
-          <Route exact path="/bookclubevents/:id" render={() => <BookClubEventPage />} />
           <Route
             exact
             path="/bookclubevents/create"
