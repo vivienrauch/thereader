@@ -194,4 +194,5 @@ Testing details can be found separately in the [TESTING.md](TESTING.md) file.
 - Moments walkthrough
 - forums like stackOverflow and Youtube
 - slack
+- fellow students
 - inspirations
