@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from "react";
-import appStyles from "../App.module.css";
-import styles from "../styles/BookOfTheMonth.module.css";
-import axios from "axios";
+import { axiosReq } from "../api/axiosDefaults";
 
 
 const BookOfTheMonth = (props) => {
-    const {
-        id,
-        title,
-        content,
-        image,
-        created_at,
-        website,
-    } = props;
+  const {
+    id,
+    title,
+    content,
+    image,
+    created_at,
+    website,
+  } = props;
 
-    const [book, setBook] = useState(null);
+  const [book, setBook] = useState(true);
 
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const response = await axios.get("/bookofthemonth/1/");
+        const response = await axiosReq.get("/bookofthemonth");
         setBook(response.data);
       } catch (err) {
         console.log(err);
@@ -32,16 +30,16 @@ const BookOfTheMonth = (props) => {
   }, [id, title]);
 
   if (!title || !book) {
-    return <div>Loading Book of the Month...</div>;
+    return <div>Seems like there is no new book yet... Check back in later!</div>;
   }
 
   return (
     <div>
-      <h2>{book.title}</h2>
-      <p>{book.content}</p>
-      <img src={book.image} alt="Book cover" />
-      <p>Read more and buy: {book.website}</p>
-      <p>{book.created_at}</p>
+      {created_at}
+      <h2>{title}</h2>
+      <p>{content}</p>
+      <img src={image} alt="Book cover" />
+      <p>Read more and buy: {website}</p>
     </div>
   );
 };

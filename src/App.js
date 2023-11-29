@@ -14,6 +14,10 @@ import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import BookOfTheMonth from "./bookofthemonth/BookOfTheMonth";
+import BookClubEventsPage from "./bookclubevents/BookClubEventsPage";
+import BookClubEventCreateForm from "./bookclubevents/BookClubEventCreateForm";
+import BookClubEventEditForm from "./bookclubevents/BookClubEventEditForm";
+import BookClubEventPage from "./bookclubevents/BookClubEventPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 
 
@@ -56,15 +60,33 @@ function App() {
           />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
-          <Route exact path="/bookclubevents" render={() => <h1>Book Club Events</h1>} />
           <Route
             exact
-            path="/bookofthemonth/1/"
+            path="/bookofthemonth"
             render={() => <BookOfTheMonth />} />
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          <Route
+            exact
+            path="/bookclubevents"
+            render={() => (
+              <BookClubEventsPage message="Sorry, no results found. Adjust the search keyword." />
+            )}
+          />
+          <Route exact path="/bookclubevents/:id" render={() => <BookClubEventPage />} />
+          <Route
+            exact
+            path="/bookclubevents/create"
+            render={() => <BookClubEventCreateForm />}
+          />
+          <Route exact path="/bookdlubevents/:id" render={() => <BookClubEventPage />} />
+          <Route
+            exact
+            path="/bookclubevents/:id/edit"
+            render={() => <BookClubEventEditForm />}
+          />
           <Route
             exact
             path="/profiles/:id/edit/username"

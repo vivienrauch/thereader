@@ -76,3 +76,39 @@ Button:active {
     border-style: none;
     border-color: #8d2b00;
 }
+
+.EventButton {
+    font-size: 80%;
+    text-transform: uppercase;
+    align-self: center;
+    border-radius: 100px;
+    border-color: transparent;
+    padding: 8px 12px;
+    width: 110px;
+    margin-bottom: 30px;
+    background-color: #8d2b00;
+    color: #fafafa;
+    margin-top: 15px;
+    border-bottom: 15px;
+    margin-right: 5px;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+}
+
+.EventButton:hover {
+    background-color: #8d2b00;
+    color: #fafafa;
+    border-color: #8d2b00;
+}
+
+.EventButton:hover:active {
+    background-color: #8d2b00 !important;
+    border-style: none;
+    border-color: #8d2b00;
+}
+
+.EventButton:focus {
+    background-color: #8d2b00;
+    border-style: none;
+    border-color: #8d2b00;
+}
