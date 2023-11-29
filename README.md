@@ -1,15 +1,15 @@
 # Welcome to The Reader!
 
+![amiresponsive](src/assets/amiresponsive.png)
+
 ### **Backend**
 
 Live site: https://the-reader-2a70cde2ef2e.herokuapp.com
 Repo: https://github.com/vivienrauch/thereader-api
 
 ### **Frontend**
-Live site: https://the-reader-react-1715725e4d83.herokuapp.com/ (as of now, the live site experiences issues of rendering)
+Live site: https://the-reader-react-1715725e4d83.herokuapp.com/
 Repo: https://github.com/vivienrauch/thereader
-
-## **Table of Contents**
 
 # **Objective**
 
@@ -87,6 +87,11 @@ events.
 | - created_at      |
 +-------------------+
 
+### **Design**
+
+Similarly to my first project, I used the color #8d2b00; a darker red a lot with the fonts Cinzel and Goudy Bookletter 1911 which create a bookish vibe. I wanted to create a cozy environment with the exterior of the app.
+It still needs some improvement, but the main idea is visible on the current features as well.
+
 
 ### **Existing Features**
 
@@ -156,7 +161,7 @@ events.
 
 # **Testing**
 
-Testing details can be found separately in the [TESTING.md](TESTING.md) file.
+Testing details can be found separately in the api repository in the TESTING.md file: https://github.com/vivienrauch/thereader-api/blob/main/TESTING.md.
 
 # **Deployment**
 
@@ -195,4 +200,4 @@ Testing details can be found separately in the [TESTING.md](TESTING.md) file.
 - forums like stackOverflow and Youtube
 - slack
 - fellow students
-- inspirations
+- inspirations: https://github.com/AlexaH88/gamer-guild
