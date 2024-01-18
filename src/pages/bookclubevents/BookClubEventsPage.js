@@ -6,7 +6,7 @@ import appStyles from "../../App.module.css";
 import styles from "../styles/BookClubEventsPage.module.css";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
-import NoResults from "../assets/no-results.png";
+import NoResults from "../../assets/no-results.png";
 import PopularProfiles from "../profiles/PopularProfiles";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
