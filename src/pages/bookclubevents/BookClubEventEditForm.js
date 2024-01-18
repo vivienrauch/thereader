@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
   Form,
   Button,
@@ -11,13 +11,12 @@ import {
 import Upload from "../assets/upload.png";
 import appStyles from "../App.module.css";
 import btnStyles from "../styles/Button.module.css";
-import Asset from "../components/Asset";
-import { useHistory } from "react-router";
-import { axiosReq } from "../api/axiosDefaults";
-import { useRedirect } from "../hooks/useRedirect";
+import Asset from "../../components/Asset";
+import { useHistory, useParams } from "react-router";
+import { axiosReq } from "../../api/axiosDefaults";
 
-function BookClubEventCreateForm() {
-  useRedirect("loggedOut");
+
+function BookClubEventEditForm() {
   const [errors, setErrors] = useState({});
 
   const [bookclubeventData, setBookClubEventData] = useState({
@@ -47,21 +46,62 @@ function BookClubEventCreateForm() {
 
   const imageInput = useRef(null);
   const history = useHistory();
+  const { id } = useParams();
+
+  useEffect(() => {
+    const handleMount = async () => {
+        try {
+            const { data } = await axiosReq.get(`/bookclubevents/${id}/`);
+            const {
+                event_name,
+                event_description,
+                event_cover,
+                event_location,
+                date,
+                event_start,
+                event_end,
+                event_organiser,
+                contact,
+                website,
+                is_owner,
+            } = data;
+
+            is_owner 
+                ? setBookClubEventData({
+                event_name,
+                event_description,
+                event_cover,
+                event_location,
+                date,
+                event_start,
+                event_end,
+                event_organiser,
+                contact,
+                website,
+            })
+            : history.push("/");
+        } catch (err) {
+            // console.log(err);
+        }
+    };
+
+    handleMount();
+  }, [history, id]);
 
   const handleChange = (event) => {
     setBookClubEventData({
-      ...bookclubeventData,
-      [event.target.name]: event.target.value,
+        ...bookclubeventData,
+        [event.target.name]: event.target.value,
     });
   };
 
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
-      URL.revokeObjectURL(event_cover);
-      setBookClubEventData({
-        ...bookclubeventData,
-        event_cover: URL.createObjectURL(event.target.files[0]),
-      });
+        URL.revokeObjectURL(event_cover);
+        setBookClubEventData({
+            ...bookclubeventData,
+            event_cover: URL.createObjectURL(event.target.files[0]),
+        });
     }
   };
 
@@ -71,7 +111,6 @@ function BookClubEventCreateForm() {
 
     formData.append("event_name", event_name);
     formData.append("event_description", event_description);
-    formData.append("event_cover", imageInput.current.files[0]);
     formData.append("event_location", event_location);
     formData.append("date", date);
     formData.append("event_start", event_start);
@@ -80,9 +119,13 @@ function BookClubEventCreateForm() {
     formData.append("contact", contact);
     formData.append("website", website);
 
+    if (imageInput?.current?.files[0]) {
+        formData.append("event_cover", imageInput.current.files[0]);
+    }
+
     try {
-      const { data } = await axiosReq.post("/bookclubevents/", formData);
-      history.push(`/bookclubevents/${data.id}`);
+      await axiosReq.put(`/bookclubevents/${id}/`, formData);
+      history.push(`/bookclubevents/${id}`);
     } catch (err) {
       // console.log(err);
       if (err.response?.status !== 401) {
@@ -237,7 +280,7 @@ function BookClubEventCreateForm() {
       >
         cancel
       </Button>
-      <Button className={`${btnStyles.PostButton}`} type="submit">
+      <Button className={`${btnStyles.Button}`} type="submit">
         create
       </Button>
     </div>
@@ -258,7 +301,7 @@ function BookClubEventCreateForm() {
                   </figure>
                   <div>
                     <Form.Label
-                      className={`${btnStyles.Button} btn`}
+                      className={`${btnStyles.Button}btn`}
                       htmlFor="image-upload"
                     >
                       Change the image
@@ -279,7 +322,7 @@ function BookClubEventCreateForm() {
 
               <Form.File
                 id="image-upload"
-                accept="event_cover/*"
+                accept="image/*"
                 onChange={handleChangeImage}
                 ref={imageInput}
               />
@@ -287,7 +330,7 @@ function BookClubEventCreateForm() {
                 The image field is required.
               </Form.Text>
             </Form.Group>
-            {errors?.event_cover?.map((message, idx) => (
+            {errors?.image?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
                 {message}
               </Alert>
@@ -303,4 +346,4 @@ function BookClubEventCreateForm() {
   );
 };
 
-export default BookClubEventCreateForm;
+export default BookClubEventEditForm;

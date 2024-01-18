@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { axiosReq } from "../api/axiosDefaults";
+import { axiosReq } from "../../api/axiosDefaults";
 
 
 const BookOfTheMonth = (props) => {

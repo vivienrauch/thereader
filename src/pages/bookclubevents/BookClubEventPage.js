@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import { useParams } from "react-router";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
-import { axiosReq } from "../api/axiosDefaults";
-import PopularProfiles from "../pages/profiles/PopularProfiles";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { axiosReq } from "../../api/axiosDefaults";
+import PopularProfiles from "../profiles/PopularProfiles";
 import BookClubEvent from "./BookClubEvent";
-import AddEventButton from "../components/AddEventButton";
+import AddEventButton from "../../components/AddEventButton";
 
 function BookClubEventPage() {
   const { id } = useParams();

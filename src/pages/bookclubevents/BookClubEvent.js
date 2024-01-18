@@ -1,5 +1,5 @@
 import React from "react";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card,
          Row,
          Col,
@@ -9,10 +9,10 @@ import { Card,
          ListGroup,
          ListGroupItem,
 } from "react-bootstrap";
-import Avatar from "../components/Avatar";
-import { axiosRes } from "../api/axiosDefaults";
+import Avatar from "../../components/Avatar";
+import { axiosRes } from "../../api/axiosDefaults";
 import { Link, useHistory } from "react-router-dom";
-import { MoreDropdown } from "../components/MoreDropdown";
+import { MoreDropdown } from "../../components/MoreDropdown";
 
 
 const BookClubEvent = (props) => {

@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Form, Row, Col, Container } from "react-bootstrap";
 import BookClubEvent from "./BookClubEvent";
-import Asset from "../components/Asset";
+import Asset from "../../components/Asset";
 import appStyles from "../App.module.css";
 import styles from "../styles/BookClubEventsPage.module.css";
 import { useLocation } from "react-router";
-import { axiosReq } from "../api/axiosDefaults";
+import { axiosReq } from "../../api/axiosDefaults";
 import NoResults from "../assets/no-results.png";
-import PopularProfiles from "../pages/profiles/PopularProfiles";
+import PopularProfiles from "../profiles/PopularProfiles";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { fetchMoreData } from "../utils/utils";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
-import AddEventButton from "../components/AddEventButton";
+import { fetchMoreData } from "../../utils/utils";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import AddEventButton from "../../components/AddEventButton";
 
 function BookClubEventsPage({ message }) {
   const [bookclubevents, setBookClubEvents] = useState({ results: [] });
