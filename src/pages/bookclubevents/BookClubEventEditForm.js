@@ -8,7 +8,7 @@ import {
   Image,
   Alert,
 } from "react-bootstrap";
-import Upload from "../assets/upload.png";
+import Upload from "../../assets/upload.png";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
