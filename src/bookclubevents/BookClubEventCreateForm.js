@@ -22,7 +22,7 @@ function BookClubEventCreateForm() {
 
   const [bookclubeventData, setBookClubEventData] = useState({
     event_name: "",
-    event_escription: "",
+    event_description: "",
     event_cover: "",
     event_location: "",
     date: "",

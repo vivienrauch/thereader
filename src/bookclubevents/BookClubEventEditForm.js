@@ -21,7 +21,7 @@ function BookClubEventEditForm() {
 
   const [bookclubeventData, setBookClubEventData] = useState({
     event_name: "",
-    event_escription: "",
+    event_description: "",
     event_cover: "",
     event_location: "",
     date: "",
@@ -51,7 +51,7 @@ function BookClubEventEditForm() {
   useEffect(() => {
     const handleMount = async () => {
         try {
-            const { data } = await axiosReq.get(`/bookclubevents/${id}`);
+            const { data } = await axiosReq.get(`/bookclubevents/${id}/`);
             const {
                 event_name,
                 event_description,
@@ -111,7 +111,6 @@ function BookClubEventEditForm() {
 
     formData.append("event_name", event_name);
     formData.append("event_description", event_description);
-    formData.append("event_cover", imageInput.current.files[0]);
     formData.append("event_location", event_location);
     formData.append("date", date);
     formData.append("event_start", event_start);

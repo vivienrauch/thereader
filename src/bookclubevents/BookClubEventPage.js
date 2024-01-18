@@ -15,9 +15,7 @@ function BookClubEventPage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: bookclubevent }] = await Promise.all([
-          axiosReq.get(`/bookclubevents/${id}`),
-        ]);
+        const { data: bookclubevent } = await axiosReq.get(`/bookclubevents/${id}`);
         setBookClubEvent({ results: [bookclubevent] });
       } catch (err) {
         // console.log(err);

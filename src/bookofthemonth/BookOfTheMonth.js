@@ -12,7 +12,7 @@ const BookOfTheMonth = (props) => {
     website,
   } = props;
 
-  const [book, setBook] = useState(true);
+  const [book, setBook] = useState(null);
 
   useEffect(() => {
     const fetchBook = async () => {

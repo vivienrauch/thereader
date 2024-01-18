@@ -40,7 +40,7 @@ const BookClubEvent = (props) => {
 
 const currentUser = useCurrentUser();
 const is_owner = currentUser?.username === owner;
-const history = useHistory;
+const history = useHistory();
 
 const handleEdit = async () => {
     history.push(`/bookclubevents/${id}/edit`);
@@ -48,7 +48,7 @@ const handleEdit = async () => {
 
 const handleDelete = async () => {
     try {
-      await axiosRes.delete(`/events/${id}`);
+      await axiosRes.delete(`/bookclubevents/${id}/`);
       history.goBack();
     } catch (err) {
         // console.log(err);
@@ -77,7 +77,7 @@ const handleResponse = async () => {
 
 const handleRemoveResponse = async () => {
     try {
-        await axiosRes.delete(`/responses/${response_id}`);
+        await axiosRes.delete(`/responses/${response_id}/`);
         setBookClubEvents((prevBookClubEvents) => ({
             ...prevBookClubEvents,
             results: prevBookClubEvents.results.map((bookclubevent) => {
