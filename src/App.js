@@ -15,9 +15,9 @@ import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import BookOfTheMonth from "./pages/bookofthemonth/BookOfTheMonth";
 import BookClubEventsPage from "./pages/bookclubevents/BookClubEventsPage";
-import BookClubEventCreateForm from "./bookclubevents/BookClubEventCreateForm";
-import BookClubEventEditForm from "./bookclubevents/BookClubEventEditForm";
-import BookClubEventPage from "./bookclubevents/BookClubEventPage";
+import BookClubEventCreateForm from "./pages/bookclubevents/BookClubEventCreateForm";
+import BookClubEventEditForm from "./pages/bookclubevents/BookClubEventEditForm";
+import BookClubEventPage from "./pages/bookclubevents/BookClubEventPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import NotFound from "./components/NotFound";
 
