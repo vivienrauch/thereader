@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-
+import { useLocation } from "react-router";
 
 
 const BookOfTheMonth = (props) => {
