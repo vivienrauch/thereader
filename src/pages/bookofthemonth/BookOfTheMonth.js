@@ -25,13 +25,9 @@ const BookOfTheMonth = (props) => {
     };
 
     fetchBook();
-    
+
   }, [id, title]);
-
-  if (!title || !book) {
-    return <div>Seems like there is no new book yet... Check back in later!</div>;
-  }
-
+  
   return (
     <div>
       {created_at}
