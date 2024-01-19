@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
 
 
 const BookOfTheMonth = (props) => {
@@ -13,6 +15,8 @@ const BookOfTheMonth = (props) => {
   } = props;
 
   const [book, setBook] = useState(null);
+  const { pathname } = useLocation();
+  const currentUser = useCurrentUser();
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -26,7 +30,7 @@ const BookOfTheMonth = (props) => {
 
     fetchBook();
 
-  }, [id, title]);
+  }, [id, title, pathname, currentUser]);
   
   return (
     <div>
