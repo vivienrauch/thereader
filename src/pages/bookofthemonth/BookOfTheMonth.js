@@ -24,9 +24,8 @@ const BookOfTheMonth = (props) => {
       }
     };
 
-    if (!title) {
-      fetchBook();
-    }
+    fetchBook();
+    
   }, [id, title]);
 
   if (!title || !book) {
