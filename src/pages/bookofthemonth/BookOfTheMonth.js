@@ -30,7 +30,7 @@ const BookOfTheMonth = (props) => {
 
     fetchBook();
 
-  }, [id, title, pathname, currentUser]);
+  }, [book, id, title, pathname, currentUser]);
   
   return (
     <div>
