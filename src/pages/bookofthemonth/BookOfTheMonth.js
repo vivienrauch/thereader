@@ -21,7 +21,7 @@ const BookOfTheMonth = (props) => {
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const response = await axiosReq.get("/bookofthemonth");
+        const response = await axiosReq.get("/bookofthemonth/");
         setBook(response.data);
       } catch (err) {
         // console.log(err);
