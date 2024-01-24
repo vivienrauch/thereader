@@ -30,15 +30,15 @@ const BookOfTheMonth = (props) => {
 
     fetchBook();
 
-  }, [book, id, title, pathname, currentUser]);
+  }, [id, title, pathname, currentUser]);
   
   return (
     <div>
-      {created_at}
-      <h2>{title}</h2>
-      <p>{content}</p>
-      <img src={image} alt="Book cover" />
-      <p>Read more and buy: {website}</p>
+      {book && <p>{book.created_at}</p>}
+      {book && <h2>{book.title}</h2>}
+      {book && <p>{book.content}</p>}
+      {book && <img src={book.image} alt="Book cover" />}
+      {book && <p>Read more and buy: {book.website}</p>}
     </div>
   );
 };
