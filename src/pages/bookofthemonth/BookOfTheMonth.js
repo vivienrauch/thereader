@@ -14,31 +14,36 @@ const BookOfTheMonth = (props) => {
     website,
   } = props;
 
-  const [book, setBook] = useState(null);
+  const [books, setBook] = useState();
   const { pathname } = useLocation();
   const currentUser = useCurrentUser();
 
   useEffect(() => {
-    const fetchBook = async () => {
+    const fetchBooks = async () => {
       try {
         const response = await axiosReq.get("/bookofthemonth/");
-        setBook(response.data);
+        console.log(response);
+        setBook(response.data.results);
       } catch (err) {
         console.log(err);
       }
     };
 
-    fetchBook();
+    fetchBooks();
 
   }, [id, title, pathname, currentUser]);
   
   return (
     <div>
-      {book && <p>{book.created_at}</p>}
-      {book && <h2>{book.title}</h2>}
-      {book && <p>{book.content}</p>}
-      {book && <img src={book.image} alt="Book cover" />}
-      {book && <p>Read more and buy: {book.website}</p>}
+      {books && books.map((book) => (
+        <div key={book.id}>
+          <p>{book.created_at}</p>
+          <h2>{book.title}</h2>
+          <p>{book.content}</p>
+          <img src={book.image} alt="Book cover" />
+          <p>Read more and buy: {book.website}</p>
+        </div>
+      ))}
     </div>
   );
 };

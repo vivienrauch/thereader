@@ -13,17 +13,18 @@ import { fetchMoreData } from "../../utils/utils";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import AddEventButton from "../../components/AddEventButton";
 
-function BookClubEventsPage({ message }) {
+function BookClubEventsPage({ message, filter = "" }) {
   const [bookclubevents, setBookClubEvents] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
-  const [query, setQuery] = useState("");
   const currentUser = useCurrentUser();
+
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     const fetchBookClubEvents = async () => {
       try {
-        const { data } = await axiosReq.get(`/bookclubevents/?search=${query}`);
+        const { data } = await axiosReq.get(`/bookclubevents/?${filter}search=${query}`);
         setBookClubEvents(data);
         setHasLoaded(true);
       } catch (err) {
@@ -39,7 +40,7 @@ function BookClubEventsPage({ message }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [query, pathname, currentUser]);
+  }, [filter, query, pathname, currentUser]);
 
   return (
     <Row>
@@ -65,7 +66,7 @@ function BookClubEventsPage({ message }) {
             {bookclubevents.results.length ? (
               <InfiniteScroll
                 children={bookclubevents.results.map((bookclubevent) => (
-                  <BookClubEvent key={bookclubevent.id} {...BookClubEvent} setBookClubEvents={setBookClubEvents} />
+                  <BookClubEvent key={bookclubevent.id} {...bookclubevent} setBookClubEvents={setBookClubEvents} />
                 ))}
                 dataLength={bookclubevents.results.length}
                 loader={<Asset spinner />}

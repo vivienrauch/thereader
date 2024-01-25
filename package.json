@@ -50,8 +50,7 @@
   "engines": {
     "node": "16.19.1",
     "npm": "8.19.3"
-  },
-  "proxy": {
-    "*":{ "target" : "https://the-reader-react-1715725e4d83.herokuapp.com/"}
- } 
+    
+  }
+  
 }
