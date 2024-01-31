@@ -7,6 +7,7 @@ import PopularProfiles from "../profiles/PopularProfiles";
 import BookClubEvent from "./BookClubEvent";
 import AddEventButton from "../../components/AddEventButton";
 
+
 function BookClubEventPage() {
   const { id } = useParams();
   const [bookclubevent, setBookClubEvent] = useState({ results: [] });
@@ -32,7 +33,9 @@ function BookClubEventPage() {
         {currentUser && (
           <AddEventButton url="/bookclubevents/create" text="Create Event" mobile />
         )}
-        <BookClubEvent {...bookclubevent.results[0]} setBookClubEvents={setBookClubEvent} BookClubEventPage />
+        {bookclubevent.results[0] && (
+          <BookClubEvent {...bookclubevent.results[0]} setBookClubEvents={setBookClubEvent} BookClubEventPage />
+        )}
       </Col>
       <Col>
         {currentUser && (

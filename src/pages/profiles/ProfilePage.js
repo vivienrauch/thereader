@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
+import { Col, Row, Container, Button, Image } from "react-bootstrap";
 
 import Asset from "../../components/Asset";
 
@@ -18,16 +16,17 @@ import {
   useProfileData,
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
-import { Button, Image } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "../posts/Post";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import BookClubEvent from "../bookclubevents/BookClubEvent";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profilePosts, setProfilePosts] = useState({ results: [] });
+  const [profilebookclubEvents, setProfileBookClubEvents] = useState({ results: [] });
 
   const currentUser = useCurrentUser();
   const { id } = useParams();
@@ -41,19 +40,25 @@ function ProfilePage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageProfile }, { data: profilePosts }] =
+        const [
+          { data: pageProfile },
+          { data: profilePosts },
+          { data: profilebookclubEvents },
+        ] =
           await Promise.all([
             axiosReq.get(`/profiles/${id}/`),
             axiosReq.get(`/posts/?owner__profile=${id}`),
+            axiosReq.get(`/bookclubevents/?owner__profile=${id}`),
           ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
         setProfilePosts(profilePosts);
+        setProfileBookClubEvents(profilebookclubEvents);
         setHasLoaded(true);
       } catch (err) {
-        // console.log(err);
+        console.log(err);
       }
     };
     fetchData();
@@ -84,6 +89,10 @@ function ProfilePage() {
             <Col xs={3} className="my-2">
               <div>{profile?.following_count}</div>
               <div>following</div>
+            </Col>
+            <Col xs={3} className="my-2">
+              <div>{profile?.bookclubevents_count}</div>
+              <div>Book Club Events</div>
             </Col>
           </Row>
         </Col>
@@ -136,6 +145,27 @@ function ProfilePage() {
     </>
   );
 
+  const mainProfileBookClubEvents = (
+    <>
+      {profilebookclubEvents.results.length ? (
+        <InfiniteScroll
+          children={profilebookclubEvents.results.map((bookclubevent) => (
+            <BookClubEvent key={bookclubevent.id} {...bookclubevent} setBookClubEvents={setProfileBookClubEvents} />
+          ))}
+          dataLength={profilebookclubEvents.results.length}
+          loader={<Asset spinner />}
+          hasMore={!!profilebookclubEvents.next}
+          next={() => fetchMoreData(profilebookclubEvents, setProfileBookClubEvents)}
+        />
+      ): (
+        <Asset
+          src={NoResults}
+          message={`No results found, ${profile?.owner} hasn't created any events yet.`}
+        />
+      )}
+    </>
+  );
+
   return (
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
@@ -145,6 +175,7 @@ function ProfilePage() {
             <>
               {mainProfile}
               {mainProfilePosts}
+              {mainProfileBookClubEvents}
             </>
           ) : (
             <Asset spinner />

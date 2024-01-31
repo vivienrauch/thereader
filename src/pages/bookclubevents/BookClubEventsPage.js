@@ -18,13 +18,12 @@ function BookClubEventsPage({ message, filter = "" }) {
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
   const currentUser = useCurrentUser();
-
   const [query, setQuery] = useState("");
 
   useEffect(() => {
     const fetchBookClubEvents = async () => {
       try {
-        const { data } = await axiosReq.get(`/bookclubevents/?${filter}search=${query}`);
+        const { data } = await axiosReq.get(`/bookclubevents/?search=${query}`);
         setBookClubEvents(data);
         setHasLoaded(true);
       } catch (err) {
@@ -40,7 +39,7 @@ function BookClubEventsPage({ message, filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname, currentUser]);
+  }, [query, pathname, currentUser]);
 
   return (
     <Row>

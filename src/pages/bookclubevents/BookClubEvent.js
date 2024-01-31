@@ -33,7 +33,7 @@ const BookClubEvent = (props) => {
         response_id,
         response_count,
         setBookClubEvents,
-        BookClubEventPage,
+        bookclubeventPage,
         updated_at,
         date,
     } = props;
@@ -48,7 +48,7 @@ const handleEdit = async () => {
 
 const handleDelete = async () => {
     try {
-      await axiosRes.delete(`/bookclubevents/${id}/`);
+      await axiosRes.delete(`/bookclubevents/${id}`);
       history.goBack();
     } catch (err) {
         // console.log(err);
@@ -100,14 +100,14 @@ const handleRemoveResponse = async () => {
             <Card.Body>
                 <Media>
                     <div>
-                        <Link to={`/profiles/${profile_id}`}>
+                        <Link to={`/profiles/${profile_id}/`}>
                             <Avatar src={profile_image} height={55} />
                             {owner}
                         </Link>
                     </div>
                     <div>
                         <span>{updated_at}</span>
-                        {is_owner && BookClubEventPage && (
+                        {is_owner && bookclubeventPage && (
                             <MoreDropdown
                                 handleEdit={handleEdit}
                                 handleDelete={handleDelete} />
