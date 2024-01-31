@@ -81,7 +81,7 @@ function App() {
             path="/bookclubevents/create"
             render={() => <BookClubEventCreateForm />}
           />
-          <Route exact path="/bookdlubevents/:id" render={() => <BookClubEventPage />} />
+          <Route exact path="/bookclubevents/:id" render={() => <BookClubEventPage />} />
           <Route
             exact
             path="/bookclubevents/:id/edit"

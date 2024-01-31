@@ -13,12 +13,12 @@ import { fetchMoreData } from "../../utils/utils";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import AddEventButton from "../../components/AddEventButton";
 
-function BookClubEventsPage({ message, filter = "" }) {
+function BookClubEventsPage({ message }) {
   const [bookclubevents, setBookClubEvents] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
-  const currentUser = useCurrentUser();
   const [query, setQuery] = useState("");
+  const currentUser = useCurrentUser();
 
   useEffect(() => {
     const fetchBookClubEvents = async () => {
@@ -27,15 +27,16 @@ function BookClubEventsPage({ message, filter = "" }) {
         setBookClubEvents(data);
         setHasLoaded(true);
       } catch (err) {
-        // console.log(err);
+        console.log(err);
       }
     };
-
+  
     setHasLoaded(false);
+  
     const timer = setTimeout(() => {
       fetchBookClubEvents();
     }, 1000);
-
+  
     return () => {
       clearTimeout(timer);
     };

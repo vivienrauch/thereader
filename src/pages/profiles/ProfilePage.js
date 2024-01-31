@@ -26,7 +26,7 @@ import BookClubEvent from "../bookclubevents/BookClubEvent";
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profilePosts, setProfilePosts] = useState({ results: [] });
-  const [profilebookclubEvents, setProfileBookClubEvents] = useState({ results: [] });
+  const [profileBookClubEvents, setProfileBookClubEvents] = useState({ results: [] });
 
   const currentUser = useCurrentUser();
   const { id } = useParams();
@@ -43,19 +43,18 @@ function ProfilePage() {
         const [
           { data: pageProfile },
           { data: profilePosts },
-          { data: profilebookclubEvents },
-        ] =
-          await Promise.all([
-            axiosReq.get(`/profiles/${id}/`),
-            axiosReq.get(`/posts/?owner__profile=${id}`),
-            axiosReq.get(`/bookclubevents/?owner__profile=${id}`),
-          ]);
+          { data: profileBookClubEvents },
+        ] = await Promise.all([
+          axiosReq.get(`/profiles/${id}/`),
+          axiosReq.get(`/posts/?owner__profile=${id}`),
+          axiosReq.get(`/bookclubevents/?owner__profile=${id}`),
+        ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
         setProfilePosts(profilePosts);
-        setProfileBookClubEvents(profilebookclubEvents);
+        setProfileBookClubEvents(profileBookClubEvents);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -147,15 +146,15 @@ function ProfilePage() {
 
   const mainProfileBookClubEvents = (
     <>
-      {profilebookclubEvents.results.length ? (
+      {profileBookClubEvents.results.length ? (
         <InfiniteScroll
-          children={profilebookclubEvents.results.map((bookclubevent) => (
+          children={profileBookClubEvents.results.map((bookclubevent) => (
             <BookClubEvent key={bookclubevent.id} {...bookclubevent} setBookClubEvents={setProfileBookClubEvents} />
           ))}
-          dataLength={profilebookclubEvents.results.length}
+          dataLength={profileBookClubEvents.results.length}
           loader={<Asset spinner />}
-          hasMore={!!profilebookclubEvents.next}
-          next={() => fetchMoreData(profilebookclubEvents, setProfileBookClubEvents)}
+          hasMore={!!profileBookClubEvents.next}
+          next={() => fetchMoreData(profileBookClubEvents, setProfileBookClubEvents)}
         />
       ): (
         <Asset
