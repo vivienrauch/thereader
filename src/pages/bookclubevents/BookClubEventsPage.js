@@ -13,6 +13,7 @@ import { fetchMoreData } from "../../utils/utils";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import AddEventButton from "../../components/AddEventButton";
 
+
 function BookClubEventsPage({ message }) {
   const [bookclubevents, setBookClubEvents] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);

@@ -293,7 +293,7 @@ function BookClubEventEditForm() {
       >
         cancel
       </Button>
-      <Button className={`${btnStyles.Button}`} type="submit">
+      <Button className={`${btnStyles.PostButton}`} type="submit">
         Edit
       </Button>
     </div>

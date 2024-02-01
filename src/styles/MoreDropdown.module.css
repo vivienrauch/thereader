@@ -5,11 +5,17 @@
 }
 
 .Absolute {
-    position: absolute;
+    position: right;
     right: 0;
     z-index: 99;
 }
 
 .ThreeDots {
     color: black;
+}
+
+.Ellipsis {
+    background-color: #8d2b00;
+    color: #fafafa;
+    border-radius: 10px;
 }

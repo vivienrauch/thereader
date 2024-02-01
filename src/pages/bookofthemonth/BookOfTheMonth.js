@@ -4,15 +4,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useLocation } from "react-router";
 
 
-const BookOfTheMonth = (props) => {
-  const {
-    id,
-    title,
-    content,
-    image,
-    created_at,
-    website,
-  } = props;
+const BookOfTheMonth = () => {
 
   const [books, setBook] = useState();
   const { pathname } = useLocation();
@@ -25,13 +17,13 @@ const BookOfTheMonth = (props) => {
         console.log(response);
         setBook(response.data.results);
       } catch (err) {
-        console.log(err);
+       // console.log(err);
       }
     };
 
     fetchBooks();
 
-  }, [id, title, pathname, currentUser]);
+  }, [pathname, currentUser]);
   
   return (
     <div>

@@ -105,16 +105,16 @@ const handleRemoveResponse = async () => {
 };
 
     return (
-        <Card>
+        <Card className={appStyles.BCEvent}>
             <Card.Body>
-                <Media>
+                <Media className="align-items-center justify-content-between">
                     <div>
                         <Link to={`/profiles/${profile_id}/`}>
                             <Avatar src={profile_image} height={55} />
                         </Link>
                         <span>{owner}</span>
                     </div>
-                    <div>
+                    <div className="d-flex align-items-center">
                         <span>{updated_at}</span>
                         {is_owner && bookclubeventPage && (
                             <>
@@ -122,7 +122,7 @@ const handleRemoveResponse = async () => {
                                     handleEdit={handleEdit}
                                     handleDelete={handleShowConfirmation}
                                 />
-                                <Modal className={`${appStyles.Modal}`}show={showConfirmation} onHide={handleCloseConfirmation}>
+                                <Modal className={`${appStyles.Modal}`} show={showConfirmation} onHide={handleCloseConfirmation}>
                                     <Modal.Header closeButton>
                                         <Modal.Title>Confirmation</Modal.Title>
                                     </Modal.Header>
@@ -146,65 +146,65 @@ const handleRemoveResponse = async () => {
             <Card.Img src={event_cover} alt={event_name} />
             <Card.Body>
                 <Link to={`/bookclubevents/${id}`}>
-                    <Card.Title>{event_name}</Card.Title>
+                    <Card.Title className={`${appStyles.Heading} text-center`}>{event_name}</Card.Title>
                 </Link>
                 {event_description && <Card.Text>{event_description}</Card.Text>}
-                <Row>
+                <Row xs={1} md={2} className="g-4">
                     <Col>
-                        <Card.Header>
+                        <Card.Header className={appStyles.BCListHeader}>
                             Description
                         </Card.Header>
-                        <ListGroup>
+                        <ListGroup className="justify-content-md-center">
 
                             {date && (
-                                <ListGroupItem>
-                                    <i aria-hidden="true" className="fa-solid fa-calendar-days"></i>{" "}
+                                <ListGroupItem className="d-flex align-items-center justify-content-between">
+                                    <i aria-hidden="true" className={`${appStyles.BCEventIcons} fa-solid fa-calendar-days`}></i>{" "}
                                     {date}
                                 </ListGroupItem>
                             )}
 
                             {event_start && (
-                                <ListGroupItem>
-                                    <i aria-hidden="true" className="fa-regular fa-clock"></i>{" "}
+                                <ListGroupItem className="d-flex align-items-center justify-content-between">
+                                    <i aria-hidden="true" className={`${appStyles.BCEventIcons} fa-regular fa-clock`}></i>{" "}
                                     We start at: {event_start}
                                 </ListGroupItem>
                             )}
 
                             {event_end && (
-                                <ListGroupItem>
-                                    <i aria-hidden="true" className="fa-solid fa-hourglass-end"></i>{" "}
+                                <ListGroupItem className="d-flex align-items-center justify-content-between">
+                                    <i aria-hidden="true" className={`${appStyles.BCEventIcons} fa-solid fa-hourglass-end`}></i>{" "}
                                     We finish at: {event_end}
                                 </ListGroupItem>
                             )}
 
                             {event_location && (
-                                <ListGroupItem>
-                                    <i aria-hidden="true" className="fa-solid fa-location-dot"></i>{" "}
+                                <ListGroupItem className="d-flex align-items-center justify-content-between">
+                                    <i aria-hidden="true" className={`${appStyles.BCEventIcons} fa-solid fa-location-dot`}></i>{" "}
                                     We meet at: {event_location}
                                 </ListGroupItem>
                             )}
                         </ListGroup>
                     </Col>
                     <Col>
-                        <Card.Header>Contact Details</Card.Header>
-                        <ListGroup>
+                        <Card.Header className={appStyles.BCListHeader}>Contact Details</Card.Header>
+                        <ListGroup className="justify-content-md-center">
                             {event_organiser && (
-                                <ListGroupItem>
+                                <ListGroupItem className="d-flex align-items-center justify-content-between">
                                     Organiser: {event_organiser}
                                 </ListGroupItem>
                             )}
 
                             {contact && (
-                                <ListGroupItem>
-                                    <i aria-hidden="true" className="fa-solid fa-at"></i>{" "}
+                                <ListGroupItem className="d-flex align-items-center justify-content-between">
+                                    <i aria-hidden="true" className={`${appStyles.BCEventIcons} fa-solid fa-at`}></i>{" "}
                                     Get in touch - {contact}
                                 </ListGroupItem>
                             )}
 
                             {website && (
-                                <ListGroupItem>
-                                    <i aria-hidden="true" className="fa-solid fa-globe"></i>{" "}
-                                    <a href={website} aria-label="book website" target="_blank" rel="noreferrer">Website</a>
+                                <ListGroupItem className="d-flex align-items-center justify-content-between">
+                                    <i aria-hidden="true" className={`${appStyles.BCEventIcons} fa-solid fa-globe`}></i>{" "}
+                                    <a href={website} aria-label="book website" target="_blank" rel="noreferrer">{website}</a>
                                 </ListGroupItem>
                             )}
                         </ListGroup>
@@ -215,21 +215,21 @@ const handleRemoveResponse = async () => {
                         <OverlayTrigger
                             placement="top"
                             overlay={<Tooltip>You can't be an attendee to your organized Book Club Event.</Tooltip>}>
-                            <span>Attend someone's event! </span>
+                            <i className={`${appStyles.OwnEvent} fa-solid fa-calendar-check`}></i>
                         </OverlayTrigger>
                     ) : response_id ? (
                         <span onClick={handleRemoveResponse}>
-                            <i className="fa-solid fa-calendar-xmark"></i>
+                            <i className={`${appStyles.RemovedResp} fa-solid fa-calendar-xmark`}></i>
                         </span>
                     ) : currentUser ? (
                         <span onClick={handleResponse}>
-                            <i className="fa-solid fa-calendar-check"></i>
+                            <i className={`${appStyles.Responded} fa-solid fa-calendar-check`}></i>
                         </span>
                     ) : (
                         <OverlayTrigger
                             placement="top"
                             overlay={<Tooltip>You need to be logged in to attend our Book Club Events!</Tooltip>}>
-                            <span>Log in </span>
+                            <i className={`${appStyles.OwnEvent} fa-solid fa-calendar-check`}></i>
                         </OverlayTrigger>
                     )}
                     {response_count}               

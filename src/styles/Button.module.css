@@ -1,5 +1,5 @@
 .Button {
-    font-size: 135%;
+    font-size: 100%;
     text-transform: uppercase;
     align-self: center;
     border-radius: 100px;
@@ -78,17 +78,16 @@
 }
 
 .EventButton {
-    font-size: 80%;
+    font-size: 75%;
     text-transform: uppercase;
     align-self: center;
     border-radius: 100px;
     border-color: transparent;
-    padding: 8px 12px;
+    padding: 6px 10px;
     width: 110px;
     margin-bottom: 30px;
     background-color: #8d2b00;
     color: #fafafa;
-    margin-top: 15px;
     border-bottom: 15px;
     margin-right: 5px;
     letter-spacing: 0.1em;

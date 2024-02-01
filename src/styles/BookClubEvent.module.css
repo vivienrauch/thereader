@@ -1,3 +1,54 @@
+.BCEvent {
+    background-color: #fafafa;
+    border: 1px solid #fff;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+}
+
+.BCEventBar {
+    margin-top: 15px;
+    padding-top: 8px;
+    border-top: 1 px solid #fff;
+}
+
+.BCEvent figure,
+h5 {
+    margin: 0 0;
+}
+
+.BCEventInf {
+    color: #3a3a3a;
+}
+
+.BCEventIcons:hover {
+    cursor: default;
+    color: #8d2b00;
+}
+
+.BCListHeader {
+    background-color: #8d2b00;
+    color: #fafafa;
+}
+
+.Heading {
+    color: #8d2b00;
+    font-weight: bold;
+}
+
+.OwnEvent:hover {
+    color: #3a3a3a;
+}
+
+.Responded {
+    color: #8d2b00;
+}
+
+.RemovedResp {
+    color: #3a3a3a;
+}
+
 .Button {
     font-family: 'Goudy Bookletter 1911', serif;
     background-color: #8d2b00;
