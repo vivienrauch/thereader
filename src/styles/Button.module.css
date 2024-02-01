@@ -19,11 +19,11 @@
     background-color: #8d2b00;
 }
 
-Button:hover:active {
+.Button:hover:active {
     background-color: #8d2b00 !important;
 }
 
-Button:active {
+.Button:active {
     background-color: #8d2b00 !important;
     border-style: none;
 }

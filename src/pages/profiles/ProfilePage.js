@@ -90,7 +90,7 @@ function ProfilePage() {
               <div>following</div>
             </Col>
             <Col xs={3} className="my-2">
-              <div>{profile?.bookclubevents_count}</div>
+              <div>{profileBookClubEvents.results.length}</div>
               <div>Book Club Events</div>
             </Col>
           </Row>
@@ -138,7 +138,7 @@ function ProfilePage() {
       ) : (
         <Asset
           src={NoResults}
-          message={`No results found, ${profile?.owner} hasn't posted yet.`}
+          message={`${profile?.owner} hasn't posted yet.`}
         />
       )}
     </>
@@ -146,6 +146,9 @@ function ProfilePage() {
 
   const mainProfileBookClubEvents = (
     <>
+      <hr />
+      <p className="text-center">{profile?.owner}'s events</p>
+      <hr />
       {profileBookClubEvents.results.length ? (
         <InfiniteScroll
           children={profileBookClubEvents.results.map((bookclubevent) => (
@@ -159,7 +162,7 @@ function ProfilePage() {
       ): (
         <Asset
           src={NoResults}
-          message={`No results found, ${profile?.owner} hasn't created any events yet.`}
+          message={`${profile?.owner} hasn't created any events yet.`}
         />
       )}
     </>

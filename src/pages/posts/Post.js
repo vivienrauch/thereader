@@ -1,7 +1,7 @@
-import React from 'react';
-import styles from "../../styles/Post.module.css";
+import React, { useState } from 'react';
+import appStyles from "../../styles/Post.module.css";
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Card, Media, OverlayTrigger, Tooltip, Modal, Button } from 'react-bootstrap';
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosReq, axiosRes } from '../../api/axiosDefaults';
@@ -27,6 +27,11 @@ const Post = (props) => {
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
     const history = useHistory();
+    const [showConfirmation, setShowConfirmation] = useState(false);
+
+    const handleShowConfirmation = () => setShowConfirmation(true);
+    const handleCloseConfirmation = () => setShowConfirmation(false);
+
 
     const handleEdit = () => {
         history.push(`/posts/${id}/edit`);
@@ -35,6 +40,7 @@ const Post = (props) => {
     const handleDelete = async () => {
         try {
             await axiosRes.delete(`/posts/${id}/`);
+            handleCloseConfirmation();
             history.goBack();
         } catch (err) {
             // console.log(err);
@@ -74,7 +80,7 @@ const Post = (props) => {
     };
 
     return (
-        <Card className={styles.Post}>
+        <Card className={appStyles.Post}>
             <Card.Body>
                 <Media className="align-items-center justify-content-between">
                     <Link to={`/profiles/${profile_id}`}>
@@ -84,10 +90,28 @@ const Post = (props) => {
                     <div className="d-flex align-items-center">
                         <span>{updated_at}</span>
                         {is_owner && postPage && (
+                            <>
                             <MoreDropdown
                                 handleEdit={handleEdit}
-                                handleDelete={handleDelete}
+                                handleDelete={handleShowConfirmation}
                             />
+                            <Modal className={`${appStyles.Modal}`}show={showConfirmation} onHide={handleCloseConfirmation}>
+                                <Modal.Header closeButton>
+                                    <Modal.Title>Confirmation</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+                                    Are you sure you want to delete your post?
+                                </Modal.Body>
+                                <Modal.Footer>
+                                    <Button className={`${appStyles.Button} btn`} onClick={handleCloseConfirmation}>
+                                        Cancel
+                                    </Button>
+                                    <Button className={`${appStyles.Button} btn`} onClick={handleDelete}>
+                                        Delete
+                                    </Button>
+                                </Modal.Footer>
+                            </Modal>
+                        </>
                         )}
                     </div>
                 </Media>
@@ -98,18 +122,18 @@ const Post = (props) => {
             <Card.Body>
                 {title && <Card.Title className="text-center">{title}</Card.Title>}
                 {content && <Card.Text>{content}</Card.Text>}
-                <div className={styles.PostBar}>
+                <div className={appStyles.PostBar}>
                     {is_owner ? (
                         <OverlayTrigger placement="top" overlay={<Tooltip>You can't like your own post!</Tooltip>}>
                             <i className="fa-regular fa-heart"></i>
                         </OverlayTrigger>
                     ) : like_id ? (
                         <span onClick={handleUnlike}>
-                            <i className={`fa-solid fa-heart ${styles.Heart}`} />
+                            <i className={`fa-solid fa-heart ${appStyles.Heart}`} />
                         </span>
                     ) : currentUser ? (
                         <span onClick={handleLike}>
-                            <i className={`fa-regular fa-heart ${styles.HeartOutline}`} />
+                            <i className={`fa-regular fa-heart ${appStyles.HeartOutline}`} />
                         </span>
                     ) : (
                         <OverlayTrigger placement="top" overlay={<Tooltip>Sign in to like posts!</Tooltip>}>

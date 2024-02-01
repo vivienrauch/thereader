@@ -107,6 +107,19 @@ function BookClubEventEditForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const currentDate = new Date();
+    const selectedStartDateTime = new Date(`${date}T${event_start}`);
+    const selectedEndDateTime = new Date(`${date}T${event_end}`);
+    if (selectedStartDateTime < currentDate || selectedEndDateTime < currentDate) {
+      setErrors({ date: ["Please select a future date and time."] });
+      return;
+    }
+
+    if (selectedEndDateTime <= selectedStartDateTime) {
+      setErrors({event_end: ["The event must end after it stars."]});
+      return;
+    }
+
     const formData = new FormData();
 
     formData.append("event_name", event_name);
@@ -281,7 +294,7 @@ function BookClubEventEditForm() {
         cancel
       </Button>
       <Button className={`${btnStyles.Button}`} type="submit">
-        create
+        Edit
       </Button>
     </div>
   );
@@ -301,7 +314,7 @@ function BookClubEventEditForm() {
                   </figure>
                   <div>
                     <Form.Label
-                      className={`${btnStyles.Button}btn`}
+                      className={`${btnStyles.Button} btn`}
                       htmlFor="image-upload"
                     >
                       Change the image

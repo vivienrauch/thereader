@@ -16,7 +16,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { Link, useHistory } from "react-router-dom";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { Button } from "react-bootstrap";
-import styles from "../../styles/Button.module.css";
+import appStyles from "../../styles/BookClubEvent.module.css";
 
 
 const BookClubEvent = (props) => {
@@ -122,7 +122,7 @@ const handleRemoveResponse = async () => {
                                     handleEdit={handleEdit}
                                     handleDelete={handleShowConfirmation}
                                 />
-                                <Modal show={showConfirmation} onHide={handleCloseConfirmation}>
+                                <Modal className={`${appStyles.Modal}`}show={showConfirmation} onHide={handleCloseConfirmation}>
                                     <Modal.Header closeButton>
                                         <Modal.Title>Confirmation</Modal.Title>
                                     </Modal.Header>
@@ -130,10 +130,10 @@ const handleRemoveResponse = async () => {
                                         Are you sure you want to delete your event?
                                     </Modal.Body>
                                     <Modal.Footer>
-                                        <Button className={styles.Button} onClick={handleCloseConfirmation}>
+                                        <Button className={`${appStyles.Button} btn`} onClick={handleCloseConfirmation}>
                                             Cancel
                                         </Button>
-                                        <Button className={styles.Button} onClick={handleDelete}>
+                                        <Button className={`${appStyles.Button} btn`} onClick={handleDelete}>
                                             Delete
                                         </Button>
                                     </Modal.Footer>
