@@ -34,7 +34,7 @@ function BookClubEventPage() {
           <AddEventButton url="/bookclubevents/create" text="Create Event" mobile />
         )}
         {bookclubevent.results[0] && (
-          <BookClubEvent {...bookclubevent.results[0]} setBookClubEvents={setBookClubEvent} BookClubEventPage />
+          <BookClubEvent {...bookclubevent.results[0]} setBookClubEvents={setBookClubEvent} bookclubeventPage />
         )}
       </Col>
       <Col>

@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card,
-         Row,
-         Col,
-         Media,
-         Tooltip,
-         OverlayTrigger,
-         ListGroup,
-         ListGroupItem,
+import { 
+    Card,
+    Row,
+    Col,
+    Media,
+    Tooltip,
+    OverlayTrigger,
+    ListGroup,
+    ListGroupItem,
+    Modal,
 } from "react-bootstrap";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { Link, useHistory } from "react-router-dom";
 import { MoreDropdown } from "../../components/MoreDropdown";
+import { Button } from "react-bootstrap";
+import styles from "../../styles/Button.module.css";
 
 
 const BookClubEvent = (props) => {
@@ -41,6 +45,10 @@ const BookClubEvent = (props) => {
 const currentUser = useCurrentUser();
 const is_owner = currentUser?.username === owner;
 const history = useHistory();
+const [showConfirmation, setShowConfirmation] = useState(false);
+
+const handleShowConfirmation = () => setShowConfirmation(true);
+const handleCloseConfirmation = () => setShowConfirmation(false);
 
 const handleEdit = async () => {
     history.push(`/bookclubevents/${id}/edit`);
@@ -49,9 +57,10 @@ const handleEdit = async () => {
 const handleDelete = async () => {
     try {
       await axiosRes.delete(`/bookclubevents/${id}`);
-      history.goBack();
+      handleCloseConfirmation();
+      history.push('/bookclubevents');
     } catch (err) {
-        // console.log(err);
+       // console.log(err);
     }
 }
 
@@ -102,15 +111,34 @@ const handleRemoveResponse = async () => {
                     <div>
                         <Link to={`/profiles/${profile_id}/`}>
                             <Avatar src={profile_image} height={55} />
-                            {owner}
                         </Link>
+                        <span>{owner}</span>
                     </div>
                     <div>
                         <span>{updated_at}</span>
                         {is_owner && bookclubeventPage && (
-                            <MoreDropdown
-                                handleEdit={handleEdit}
-                                handleDelete={handleDelete} />
+                            <>
+                                <MoreDropdown
+                                    handleEdit={handleEdit}
+                                    handleDelete={handleShowConfirmation}
+                                />
+                                <Modal show={showConfirmation} onHide={handleCloseConfirmation}>
+                                    <Modal.Header closeButton>
+                                        <Modal.Title>Confirmation</Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>
+                                        Are you sure you want to delete your event?
+                                    </Modal.Body>
+                                    <Modal.Footer>
+                                        <Button className={styles.Button} onClick={handleCloseConfirmation}>
+                                            Cancel
+                                        </Button>
+                                        <Button className={styles.Button} onClick={handleDelete}>
+                                            Delete
+                                        </Button>
+                                    </Modal.Footer>
+                                </Modal>
+                            </>
                         )}
                     </div>
                 </Media>
@@ -168,14 +196,14 @@ const handleRemoveResponse = async () => {
 
                             {contact && (
                                 <ListGroupItem>
-                                    <i aria-hidden="true" class="fa-solid fa-at"></i>{" "}
+                                    <i aria-hidden="true" className="fa-solid fa-at"></i>{" "}
                                     Get in touch - {contact}
                                 </ListGroupItem>
                             )}
 
                             {website && (
                                 <ListGroupItem>
-                                    <i aria-hidden="true" class="fa-solid fa-globe"></i>{" "}
+                                    <i aria-hidden="true" className="fa-solid fa-globe"></i>{" "}
                                     <a href={website} aria-label="book website" target="_blank" rel="noreferrer">Website</a>
                                 </ListGroupItem>
                             )}
@@ -187,6 +215,7 @@ const handleRemoveResponse = async () => {
                         <OverlayTrigger
                             placement="top"
                             overlay={<Tooltip>You can't be an attendee to your organized Book Club Event.</Tooltip>}>
+                            <span>Attend someone's event! </span>
                         </OverlayTrigger>
                     ) : response_id ? (
                         <span onClick={handleRemoveResponse}>
@@ -200,6 +229,7 @@ const handleRemoveResponse = async () => {
                         <OverlayTrigger
                             placement="top"
                             overlay={<Tooltip>You need to be logged in to attend our Book Club Events!</Tooltip>}>
+                            <span>Log in </span>
                         </OverlayTrigger>
                     )}
                     {response_count}               
