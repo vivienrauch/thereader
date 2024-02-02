@@ -271,7 +271,7 @@ function BookClubEventCreateForm() {
                   </figure>
                   <div>
                     <Form.Label
-                      className={`btn ${btnStyles.Button}`}
+                      className={`${btnStyles.Button} btn`}
                       htmlFor="image-upload"
                     >
                       Change the image
@@ -292,7 +292,7 @@ function BookClubEventCreateForm() {
 
               <Form.File
                 id="image-upload"
-                accept="event_cover/*"
+                accept="image/*"
                 onChange={handleChangeImage}
                 ref={imageInput}
               />
@@ -300,7 +300,7 @@ function BookClubEventCreateForm() {
                 The image field is required.
               </Form.Text>
             </Form.Group>
-            {errors?.event_cover?.map((message, idx) => (
+            {errors?.image?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
                 {message}
               </Alert>

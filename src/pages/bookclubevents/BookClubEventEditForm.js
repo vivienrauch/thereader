@@ -97,11 +97,11 @@ function BookClubEventEditForm() {
 
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
-        URL.revokeObjectURL(event_cover);
-        setBookClubEventData({
-            ...bookclubeventData,
-            event_cover: URL.createObjectURL(event.target.files[0]),
-        });
+      URL.revokeObjectURL(event_cover);
+      setBookClubEventData({
+        ...bookclubeventData,
+        event_cover: URL.createObjectURL(event.target.files[0]),
+      });
     }
   };
 
