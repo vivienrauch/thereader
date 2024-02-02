@@ -15,13 +15,13 @@ Repo: https://github.com/vivienrauch/thereader
 
 My objective with this community app was to bring those who have reading as a hobby closer together;
 as well as having a functional app that can authenticate, make it possible for users to follow each other,
-make up their own profile, be able to modify it, have some custom features like the book of the month or the book club
-events.
+make up their own profile, be able to modify it, have some custom features like the "book of the month" or the "book club
+events" and "responses".
 
 ## **User Stories**
 
 - [Kanban board] (https://github.com/users/vivienrauch/projects/8/views/1)
-- [User stories] (https://github.com/vivienrauch/thereader-api/issues)
+- [User stories] (https://github.com/vivienrauch/thereader-api/issues?q=is%3Aissue+is%3Aclosed)
 
 ## **Features**
 
@@ -99,15 +99,21 @@ It still needs some improvement, but the main idea is visible on the current fea
 
 - Sign in and up
 
+This is the page logged out or unregistered users see. The rest of the options become available once they are signed in.
+
 ![signinup](src/assets/signinsignup.png)
 
-- Home page
+- Home page & Navigation bar
+
+This is the page that are available to logged in users.
 
 ![home](src/assets/home.png)
 
-![navbrar](src/assets/nav.png)
+![navbar](src/assets/nav.png)
 
-- Profile, edit
+- Profile, Edit profile
+
+On your profile both your posts and the events created by you get listed. The events count are also indicated under the username. When you want to edit your profile, you can modify your username, password, as well as your bio and profile picture.
 
 ![profile](src/assets/profile.png)
 
@@ -117,15 +123,21 @@ It still needs some improvement, but the main idea is visible on the current fea
 
 - Following and Popular profiles
 
+On the side you see other profiles listed, and you can click to follow them, so their posts and events will show up in your feed.
+
 ![followingpopular](src/assets/popularprofilesplusfollow.png)
 
 - Book of the month
 
+This is a page moderated by the admin. It displays the so-called book of the month, that the members of the book club community should read and post about and create events related to. Clicking on the image redirects the user to a page where they can get the book.
+
 ![botm](src/assets/bookofthemonth.png)
 
-- Book Club Event, create (edit, delete - future feature)
+- Book Club Event
 
-![bce](src/assets/bookclubeventspage.png)
+The Book Club Events page lists events by the users. A user can create, edit and delete an event, as well as rsvp to an event.
+
+![bce](src/assets/bookclubevent.png)
 
 ![bcecr](src/assets/createbookclubevent.png)
 
