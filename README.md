@@ -245,7 +245,7 @@ Similarly to my first project, I used the color #8d2b00; a darker red a lot with
 
 # **Testing**
 
-Testing details can be found separately in the api repository in the TESTING.md file: https://github.com/vivienrauch/thereader-api/blob/main/TESTING.md.
+Testing details can be found separately [here](https://github.com/vivienrauch/thereader/blob/main/TESTING.md).
 
 # **Deployment**
 
