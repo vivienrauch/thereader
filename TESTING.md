@@ -375,11 +375,19 @@ Essential post details are prominently highlighted, contributing to a positive u
 <details>
 <summary>Viewing Book Club Events & Individual Event</summary>
 
+- **User Story:**
+
 ![viewevents](src/assets/testing_viewbce.png)
 
+- **Ordering:** Book club events are displayed in descending chronological order, with the freshest event appearing first.
 
+- **Clear Display:** The component displays book club events in a clear and organized manner, presenting relevant information such as event title and date prominently.
 
-- **User Story:**
+- **Visual Presentation:** Visual styles enhance the presentation of the event listing as well as individual event presentation upon clicking, making it intuitive for users.
+
+- **Date Visibility:** Date information for each event is clearly visible and distinguishable, allowing users to identify and understand the chronological order.
+
+- **Infinite Scrolling:** Infinite scrolling function allowing users to navigate through multiple pages or load more events seamlessly.
 
 </details>
 
@@ -387,6 +395,20 @@ Essential post details are prominently highlighted, contributing to a positive u
 <summary>Creating a Book Club Event</summary>
 
 - **User Story:**
+
+![creatingevents](src/assets/testing_createbce.png)
+
+- **Access for Authenticated Users:** Authenticated users have access to the "Create Event" feature.
+
+- **Visibility of "Create Event" Button:** The "Create Event" button is appropriately integrated within the user interface for authenticated users.
+
+- **Form Fields:** The form component allows users to input details such as title, description, date, and location for a new book club event.
+
+- **User-Friendly Design:** The form is designed to be user-friendly, providing a seamless experience for users when creating a new event.
+
+- **Validation for Required Fields:** The form includes necessary validation for required fields, ensuring that users cannot submit incomplete data.
+
+- **Data Format Validation:** Validation checks for data formats (date, etc.) are implemented to maintain data integrity.
 
 </details>
 
