@@ -514,9 +514,104 @@ Essential post details are prominently highlighted, contributing to a positive u
 
 # **Lighthouse**
 
+<details>
+<summary>Lighthouse Analysis</summary>
+
+## **Book Club Events**
+
+- Desktop
+
+![bcedt](src/assets/lighthouse_bce_desktop.png)
+
+- Mobile
+
+![bcem](src/assets/lighthouse_bce.png)
+
+## **Book Of The Month**
+
+- Desktop
+
+![botmdt](src/assets/lighthouse_botm.png)
+
+- Mobile
+
+![botmm](src/assets/lighthouse_botm_mobile.png)
+
+## **Home**
+
+- Desktop
+
+![homedt](src/assets/lighthouse_home_desktop.png)
+
+- Mobile
+
+![homem](src/assets/lighthouse_home.png)
+
+## **Feed**
+
+- Desktop
+
+![feeddt](src/assets/lighthouse_feed_desktop.png)
+
+- Mobile
+
+![feedm](src/assets/lighthouse_feed_mobile.png)
+
+## **Liked**
+
+- Desktop
+
+![likeddt](src/assets/lighthouse_liked_desktop.png)
+
+- Mobile
+
+![likedm](src/assets/lighthouse_liked_mobile.png)
+
+## **Profile**
+
+- Desktop
+
+![profiledt](src/assets/lighthouse_profile_desktop.png)
+
+- Mobile
+
+![profilem](src/assets/lighthouse_profile_mobile.png)
+
+## **Sign In**
+
+- Desktop
+
+![signindt](src/assets/lighthouse_signin_desktop.png)
+
+- Mobile
+
+![signinm](src/assets/lighthouse_signin_mobile.png)
+
+## **Sign Up**
+
+- Desktop
+
+![signupdt](src/assets/lighthouse_signup_desktop.png)
+
+- Mobile
+
+![signupm](src/assets/lighthouse_signup_mobile.png)
+
+</details>
+
 # **Responsiveness**
 
+Tested on Google Chrome, Microsoft Edge and Safari browsers. Pages render responsively in each browser on different screen sizes.
+
 # **Validator Testing**
+
+### **Eslint**
+
+### **CSS Validation**
+
+All CSS files were validated with the [Jigsaw](https://jigsaw.w3.org/css-validator/validator.html.en) validator and passed without error.
+
+![cssvalid](src/assets/css_valid.png)
 
 # **Bugs & Fixes**
 

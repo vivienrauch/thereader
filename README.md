@@ -15,8 +15,7 @@ Repo: https://github.com/vivienrauch/thereader
 
 My objective with this community app was to bring those who have reading as a hobby closer together;
 as well as having a functional app using agile planning, that entails the CRUD functionality, that can authenticate, make it possible for users to follow each other,
-make up their own profile, be able to modify it, have some custom features like the "book of the month" or the "book club
-events" and "responses".
+make up their own profile, be able to modify it, have some custom features like the "book of the month" or the "book club events" and "responses".
 
 ## **Project & User Stories**
 
@@ -245,7 +244,7 @@ Similarly to my first project, I used the color #8d2b00; a darker red a lot with
 
 # **Testing**
 
-Testing details can be found separately [here](https://github.com/vivienrauch/thereader/blob/main/TESTING.md).
+Frontend testing details can be found separately [here](https://github.com/vivienrauch/thereader/blob/main/TESTING.md).
 
 # **Deployment**
 
@@ -269,6 +268,10 @@ Testing details can be found separately [here](https://github.com/vivienrauch/th
 - Heroku: for hosting the application
 - Git: version control
 - GitHub: repository to store docs and code
+- Canva: for creating the logo
+- Pexel: for stock images
+- Font Awesome: for icons
+- Google Fonts: for font families
 
 # **Credits**
 

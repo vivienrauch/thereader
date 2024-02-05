@@ -5,7 +5,7 @@
 }
 
 .Absolute {
-    position: right;
+    position: relative;
     right: 0;
     z-index: 99;
 }
