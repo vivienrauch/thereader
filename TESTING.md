@@ -1,5 +1,7 @@
 # **Manual Testing - User Stories**
 
+This page is designated for the testing of the frontend of The Reader app.
+
 ## **Authentication, tokens, navigation**
 
 <details>
@@ -273,6 +275,33 @@ Essential post details are prominently highlighted, contributing to a positive u
 
 - **User Story:**
 
+![likeunlikeposts](src/assets/testing_likeunlikeposts.png)
+
+- **Visibility of "Like" Button:** As a logged-in user, the "Like" button is visible next to each post on the page.
+
+- **Like Registration:** When clicking the "Like" button, the system registers the like for the particular content.
+
+- **Likes Count Display:** The number of likes increments with each like and is displayed for other users to see.
+
+- **Unlike Functionality:** Users have the ability to unlike a post if they had previously liked it.
+
+- **One Like per User per Post:** A post can only be liked once by a user.
+
+- **Backend Model and View:** Backend includes a model for likes, a view for handling like/unlike requests, a serializer for data serialization, and the necessary URL patterns.
+
+- **Database Update on Like/Unlike:** Backend logic updates the database accurately when a user likes or unlikes a post.
+
+
+- **"Like" Button Component:** A frontend component for the "Like" button is integrated into each post.
+
+- **Appearance Change on Like/Unlike:** The appearance of the "Like" button changes based on whether the user has liked the post or not.
+
+- **Frontend Logic:** Frontend logic handles requests appropriately when the "Like" button is clicked.
+
+- **Dynamic UI Update:** The UI updates dynamically to reflect changes in the likes count and the state of the "Like" button.
+
+- **End-to-End:** The end-to-end flow of liking and unliking posts has been tested, ensuring a seamless experience for users.
+
 </details>
 
 ## **Comments**
@@ -417,6 +446,28 @@ Essential post details are prominently highlighted, contributing to a positive u
 
 - **User Story:**
 
+![editbce](src/assets/testing_editbce.png)
+
+- **"Edit" Button:** An "Edit" button is visible for each book club event on the page.
+
+- **Owner Restriction for "Edit" Button:** The "Edit" button is only visible to the authenticated user who is the owner of the event.
+
+- **Form Component for Modification:** A form component includes editable fields for relevant details of a book club event. The form is initially populated with the current details of the book club event.
+
+- **Backend Logic:** Backend logic accurately handles the modification of book club events.
+
+- **Owner Authentication Check:** Only the authenticated owner of the event can trigger the modification process.
+
+- **Frontend Update on Modification:** Frontend updates seamlessly when a book club event is successfully modified.
+
+- **Editable Fields for Details:** Relevant fields such as event title, description, date, and location are editable.
+
+- **Validation Checks:** Validation checks are implemented to ensure that modified data adheres to specified constraints like valid date and time.
+
+- **Error Messages on Issues:** Clear error messages are displayed if there are issues with the modification attempt.
+
+- **End-to-End Flow:** The end-to-end flow of modifying a book club event has been tested, ensuring a seamless experience for authenticated owners.
+
 </details>
 
 <details>
@@ -424,12 +475,40 @@ Essential post details are prominently highlighted, contributing to a positive u
 
 - **User Story:**
 
+![deletebce](src/assets/testing_deletebce.png)
+
+- **"Delete" Button:** A "Delete" button is visible for each owner owned book club event on the page.
+
+- **Owner Restriction for "Delete" Button:** The "Delete" button is only visible to the authenticated user who is the owner of the event.
+
+- **Confirmation Dialog:** A confirmation with the options to confirm or cancel the deletion are available within the dialog that appears when the "Delete" button is clicked.
+
+- **Backend Logic for Deletion:** Backend logic accurately handles the deletion of book club events.
+
+- **Frontend Update on Deletion:** Frontend updates seamlessly when a book club event is successfully deleted.
+
 </details>
 
 <details>
 <summary>RSVP-ing to a Book Club Event</summary>
 
 - **User Story:**
+
+![rsvp](src/assets/testing_rsvp.png)
+
+- **Authentication Check for RSVP:** Authentication checks are implemented to allow only authenticated users to access the RSVP functionality.
+
+- **Login/Registration Prompt for Non-authenticated Users:** Non-authenticated users attempting to RSVP are prompted to login or register.
+
+- **RSVP Button:** An "RSVP" button in the form of an icon is visible on the event page for authenticated users.
+
+- **Backend Logic for RSVP:** Backend logic accurately handles the update of the user's RSVP status for the event.
+
+- **Display of User's RSVP Status:** The user's RSVP status is displayed on the event page.
+
+- **Option to Cancel RSVP:** Authenticated users have the option to cancel their RSVP.
+
+- **RSVP Reflection on Event Page:** Upon RSVP, the attendance status is promptly updated and reflected on the event page. Authenticated users can view their own RSVP status on the event page.
 
 </details>
 
@@ -441,3 +520,12 @@ Essential post details are prominently highlighted, contributing to a positive u
 
 # **Bugs & Fixes**
 
+I had problems with the custom pages Book Of The Month and Book Club Events.
+
+- Book of the month:
+    - Bug: There was data in the backend that didn't get rendered in the frontend but without raising an error, showing a page that is set to be shown when there is no book to render.
+    - Fix: First, I needed to change the setBook variable from ```setBook(response.data)``` to ```setBook(response.data.results)```. Also, I was not mapping over the books properly in the "return" statement. Once I fixed those, the page rendered as it should.
+
+- Book Club Events:
+    - Bug: I had many bugs that kept the events from rendering properly. First, the events weren't fetched from the backend, the rsvp didn't show and the edit/delete options were not present.
+    - Fix: It was a snowball-effect, that once I fixed something, I realized what else didn't work. The fix included database fields updates in the backend, typos in url paths, having underscores instead of dots. With thorough checking and immense the help of tutors I could slowly but surely debug the code issue by issue.
