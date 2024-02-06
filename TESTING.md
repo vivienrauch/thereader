@@ -607,6 +607,8 @@ Tested on Google Chrome, Microsoft Edge and Safari browsers. Pages render respon
 
 All .js files passed the ESLint validation.
 
+### **Eslint**
+
 <details>
 <summary>Validations</summary>
 
@@ -669,10 +671,6 @@ All .js files passed the ESLint validation.
 ![eslintutils](src/assets/eslint/eslint_utils.png)
 
 </details>
-
-### **Eslint**
-
-- [App.js]()
 
 ### **CSS Validation**
 

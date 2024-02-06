@@ -248,18 +248,16 @@ Frontend testing details can be found separately [here](https://github.com/vivie
 
 # **Deployment**
 
-- Open your Heroku dashboard.
-- Click on "New" and choose "Create new app."
-- Provide a meaningful name for your app and select the appropriate region.
-- Go to the "Settings" tab.
-- Click "Reveal Config Vars" to input key-value pairs from your .env file (excluding DEBUG and DEVELOPMENT).
-- Add a buildpack by clicking "Add buildpack" and select "python" from the list. Save your changes.
-- Navigate to the "Deploy" tab.
-- Choose "GitHub - Connect to GitHub" as the deployment method.
-- Click "Connect to GitHub" and search for your repository by name.
-- Connect to the relevant repository and either enable automatic deploys or manually deploy by clicking "Deploy Branch."
-- Access the deployed site by clicking "View."
-- You can also find the live site in the environments section of your GitHub repository.
+- Head over to Heroku and set up an account.
+- Locate and click the "New" button positioned in the upper right corner.
+- Choose "Create New App" from the options.
+- Provide a name for your app.
+- Select a region and hit the "Create App" button.
+- Move to the "Deploy" tab.
+- Scroll down to "Connect to GitHub" and follow the prompts to sign in/authorize.
+- In the search bar, locate the repository you intend to deploy and establish a connection.
+- Continue scrolling to "Manual Deploy" and opt for the main branch.
+- Finally, click the "Deploy" button.
 
 # **Technologies Used**
 
@@ -275,8 +273,9 @@ Frontend testing details can be found separately [here](https://github.com/vivie
 
 # **Credits**
 
+- My mentor, Gareth McGir !!! Thank you so much for everything!
 - Moments walkthrough
 - forums like stackOverflow and Youtube
-- slack
+- Slack
 - fellow students
 - inspirations: https://github.com/AlexaH88/gamer-guild
