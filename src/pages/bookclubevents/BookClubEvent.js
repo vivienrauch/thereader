@@ -214,7 +214,7 @@ const handleRemoveResponse = async () => {
                     {is_owner ? (
                         <OverlayTrigger
                             placement="top"
-                            overlay={<Tooltip>You can't be an attendee to your organized Book Club Event.</Tooltip>}>
+                            overlay={<Tooltip>You can not be an attendee to your organized Book Club Event.</Tooltip>}>
                             <i className={`${appStyles.OwnEvent} fa-solid fa-calendar-check`}></i>
                         </OverlayTrigger>
                     ) : response_id ? (

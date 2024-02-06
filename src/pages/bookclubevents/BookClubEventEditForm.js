@@ -357,6 +357,6 @@ function BookClubEventEditForm() {
       </Row>
     </Form>
   );
-};
+}
 
 export default BookClubEventEditForm;

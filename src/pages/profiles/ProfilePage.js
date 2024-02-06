@@ -123,18 +123,19 @@ function ProfilePage() {
   const mainProfilePosts = (
     <>
       <hr />
-      <p className="text-center">{profile?.owner}'s posts</p>
+      <p className="text-center">Posts of {profile?.owner}</p>
       <hr />
       {profilePosts.results.length ? (
         <InfiniteScroll
-          children={profilePosts.results.map((post) => (
-            <Post key={post.id} {...post} setPosts={setProfilePosts} />
-          ))}
           dataLength={profilePosts.results.length}
           loader={<Asset spinner />}
           hasMore={!!profilePosts.next}
           next={() => fetchMoreData(profilePosts, setProfilePosts)}
-        />
+        >
+          {profilePosts.results.map((post) => (
+            <Post key={post.id} {...post} setPosts={setProfilePosts} />
+          ))}
+        </InfiniteScroll>
       ) : (
         <Asset
           src={NoResults}
@@ -147,18 +148,19 @@ function ProfilePage() {
   const mainProfileBookClubEvents = (
     <>
       <hr />
-      <p className="text-center">{profile?.owner}'s events</p>
+      <p className="text-center">Events of {profile?.owner}</p>
       <hr />
       {profileBookClubEvents.results.length ? (
         <InfiniteScroll
-          children={profileBookClubEvents.results.map((bookclubevent) => (
-            <BookClubEvent key={bookclubevent.id} {...bookclubevent} setBookClubEvents={setProfileBookClubEvents} />
-          ))}
           dataLength={profileBookClubEvents.results.length}
           loader={<Asset spinner />}
           hasMore={!!profileBookClubEvents.next}
           next={() => fetchMoreData(profileBookClubEvents, setProfileBookClubEvents)}
-        />
+        >
+          {profileBookClubEvents.results.map((bookclubevent) => (
+            <BookClubEvent key={bookclubevent.id} {...bookclubevent} setBookClubEvents={setProfileBookClubEvents} />
+          ))}
+        </InfiniteScroll>
       ): (
         <Asset
           src={NoResults}

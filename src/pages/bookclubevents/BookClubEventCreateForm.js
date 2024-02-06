@@ -314,6 +314,6 @@ function BookClubEventCreateForm() {
       </Row>
     </Form>
   );
-};
+}
 
 export default BookClubEventCreateForm;

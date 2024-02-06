@@ -605,7 +605,74 @@ Tested on Google Chrome, Microsoft Edge and Safari browsers. Pages render respon
 
 # **Validator Testing**
 
+All .js files passed the ESLint validation.
+
+<details>
+<summary>Validations</summary>
+
+![eslintapp](src/assets/eslint_app.png)
+
+![eslintbce](src/assets/eslint_bce.png)
+
+![eslintbcecreate](src/assets/eslint_bcecreate.png)
+
+![eslintbceedit](src/assets/eslint_bceedit.png)
+
+![eslintbcepage](src/assets/eslint_bcepage.png)
+
+![eslintbcespage](src/assets/eslint_bcespage.png)
+
+![eslintbotm](src/assets/eslint_botm.png)
+
+![eslintcomment](src/assets/eslint_comment.png)
+
+![eslintcommentcreate](src/assets/eslint_commentcreate.png)
+
+![eslintcommentedit](src/assets/eslint_commentedit.png)
+
+![eslintcomponents](src/assets/eslint_components1.png)
+
+![eslintcomponents](src/assets/eslint_components2.png)
+
+![eslintcontexts](src/assets/eslint_contexts.png)
+
+![eslinthooks](src/assets/eslint_hooks.png)
+
+![eslintindex](src/assets/eslint_index.png)
+
+![eslintpopularprofiles](src/assets/eslint_popularprofiles.png)
+
+![eslintpost](src/assets/eslint_post.png)
+
+![eslintpostcreate](src/assets/eslint_postcreate.png)
+
+![eslintpostedit](src/assets/eslint_postedit.png)
+
+![eslintpostpage](src/assets/eslint_postpage.png)
+
+![eslintpostspage](src/assets/eslint_postspage.png)
+
+![eslintprofile](src/assets/eslint_profile.png)
+
+![eslintprofileedit](src/assets/eslint_profileedit.png)
+
+![eslintprofilepage](src/assets/eslint_profilepage.png)
+
+![eslintsignup](src/assets/eslint_signup.png)
+
+![eslintsignin](src/assets/eslint_signin.png)
+
+![eslintusername](src/assets/eslint_username.png)
+
+![eslintuserpassword](src/assets/eslint_userpassword.png)
+
+![eslintutils](src/assets/eslint/eslint_utils.png)
+
+</details>
+
 ### **Eslint**
+
+- [App.js]()
 
 ### **CSS Validation**
 

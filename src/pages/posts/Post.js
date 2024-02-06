@@ -124,7 +124,7 @@ const Post = (props) => {
                 {content && <Card.Text>{content}</Card.Text>}
                 <div className={appStyles.PostBar}>
                     {is_owner ? (
-                        <OverlayTrigger placement="top" overlay={<Tooltip>You can't like your own post!</Tooltip>}>
+                        <OverlayTrigger placement="top" overlay={<Tooltip>You can not like your own post!</Tooltip>}>
                             <i className="fa-regular fa-heart"></i>
                         </OverlayTrigger>
                     ) : like_id ? (

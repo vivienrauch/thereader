@@ -66,14 +66,15 @@ function BookClubEventsPage({ message }) {
           <>
             {bookclubevents.results.length ? (
               <InfiniteScroll
-                children={bookclubevents.results.map((bookclubevent) => (
-                  <BookClubEvent key={bookclubevent.id} {...bookclubevent} setBookClubEvents={setBookClubEvents} />
-                ))}
                 dataLength={bookclubevents.results.length}
                 loader={<Asset spinner />}
                 hasMore={!!bookclubevents.next}
                 next={() => fetchMoreData(bookclubevents, setBookClubEvents)}
-              />
+              >
+                {bookclubevents.results.map((bookclubevent) => (
+                  <BookClubEvent key={bookclubevent.id} {...bookclubevent} setBookClubEvents={setBookClubEvents} />
+                ))}
+              </InfiniteScroll>
             ) : (
               <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} />
